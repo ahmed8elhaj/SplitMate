@@ -1,0 +1,41 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.iconColor{
+    color:#4F46E5;
+}
+
+.logo{
+    font-size:20px;
+}
+
+.flex{
+    display: flex;
+}
+.space-between{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.flex-column{
+    display:flex;
+    flex-direction:column;
+}
+.aside-size{
+    width:20vw;
+    height: 100vh;
+}
+
+#btn-addGroup{
+    float:right;
+}
+
+main{
+    width:75vw;
+    height: 100vh;
+}
+ #top-header{
+    width:75vw;
+    height:10vh;
+ }
