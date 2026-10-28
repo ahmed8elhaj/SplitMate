@@ -24,7 +24,7 @@
                 class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700">
                 <span class="text-xl leading-none">+</span>Create group</button>
         </header>
-        <div class="px-9 py-7">
+        <div class="px-9 py-7 bg-gray-50">
             <div>
                 <h1 class="text-2xl font-medium text-slate-800">
                     My Groups
@@ -62,7 +62,7 @@
         </div>
 
         </div>
-        <section class="px-4 py-6 sm:px-9">
+        <section class="px-4 py-6 sm:px-9 bg-gray-50">
             <div class="mb-3 flex items-center justify-between">
                 <p class="text-xs text-slate-400">3 groups</p>
                 <p class="text-xs text-slate-400">Updated just now</p>
@@ -124,8 +124,78 @@
             </div>
         </section>
         </article>
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 hidden">
+            <section class="w-full max-w-[520px] overflow-hidden rounded-2xl bg-white shadow-2xl ">
+                <div class="flex items-start justify-between border-b border-gray-200 px-6 py-5">
+                    <div>
+                        <h5 class="text-lg font-medium text-slate-800">
+                            Create new group
+                        </h5>
+                        <small class="mt-1 block text-xs text-slate-500">
+                            Create a space to track expenses together.
+                        </small>
+                    </div>
+                    <button type="button"
+                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200">
+                        <i class="ri-close-line text-xl"></i>
+                    </button>
+                </div>
+                <form class="flex flex-col">
+                    <div class="flex flex-col gap-4 px-6 py-5">
+                        <div class="flex flex-col gap-2">
+                            <label for="group-name" class="text-xs font-medium text-slate-700">
+                                Group name <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="group-name" name="nom" required placeholder="e.g. Weekend Marrakech"
+                                class="w-full rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="group-description" class="text-xs font-medium text-slate-700">
+                                Description
+                            </label>
+                            <textarea id="group-description" name="description" rows="3"
+                                placeholder="What is this group for?"
+                                class="w-full resize-y rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500"></textarea>
+                            <small class="text-xs text-slate-400">
+                                Keep it short and helpful.
+                            </small>
+                        </div>
+                        <div class="flex flex-col gap-4 sm:flex-row">
+                            <div class="flex min-w-0 flex-1 flex-col gap-2">
+                                <label for="group-currency" class="text-xs font-medium text-slate-700">
+                                    Currency <span class="text-red-500">*</span>
+                                </label>
+                                <select id="group-currency" name="devise" required
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
+                                    <option value="MAD">MAD — Moroccan Dirham</option>
+                                    <option value="EUR">EUR — Euro</option>
+                                    <option value="USD">USD — US Dollar</option>
+                                </select>
+                            </div>
+                            <div class="flex min-w-0 flex-1 flex-col gap-2">
+                                <label for="group-date" class="text-xs font-medium text-slate-700">
+                                    Start date <span class="text-red-500">*</span>
+                                </label>
+                                <input type="date" id="group-date" name="dateDebut" required
+                                    class="w-full min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end gap-3 border-t border-slate-200 px-6 py-5">
+                        <button type="button"
+                            class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                            Cancel
+                        </button>
+                        <button type="submit"
+                            class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-medium text-white shadow-md hover:bg-indigo-700">
+                            <i class="ri-check-line text-lg"></i>
+                            Create group
+                        </button>
+
+                    </div>
+                </form>
+            </section>
+        </div>
     </section>
-
 </body>
-
 </html>
