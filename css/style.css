@@ -2,40 +2,159 @@
     margin:0px;
     padding:0px;
 }
-.iconColor{
+.krishna{
     color:#4F46E5;
+}
+.grey{
+    color:#697386;
 }
 
 .logo{
     font-size:20px;
+    padding:30px 0 5px 20px;
+}
+.logo-icon{
+    color:white;
+    background-color:#4F46E5 ;
+    padding:1px;
+    border-radius: 3px;
 }
 
 .flex{
     display: flex;
 }
+
+.gap{
+    display: flex;
+    gap:35px;
+}
+.gap10px{
+    display:flex;
+    gap:10px;
+}
+.gap20px{
+    display:flex;
+    gap:20px;
+}
+
+.space10px{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.space20px{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
 .space-between{
     display:flex;
     justify-content:space-between;
-    align-items: center;
+}
+.space-evenly{
+    display:flex;
+    justify-content: space-evenly;
+}
+.space-around{
+    display: flex;
+    justify-content: space-around;
 }
 .flex-column{
     display:flex;
     flex-direction:column;
 }
+aside{
+      /* position: fixed; */
+      background: black;   
+}
 .aside-size{
-    width:20vw;
-    height: 100vh;
+    width:15vw;
+    height: 100vw;
+     border:1px silver solid;
 }
 
-#btn-addGroup{
-    float:right;
+.nav-center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.nav-p{
+     padding-right: 100px;
+     padding-bottom: 10px;
+}
+
+.background-chart{
+    width:100%;
+    height: 8px;
+    background-color: rgb(210, 207, 207);
+    border-radius: 5px;
 }
 
 main{
-    width:75vw;
+    width:80vw;
     height: 100vh;
 }
  #top-header{
-    width:75vw;
     height:10vh;
+    position: fixed;
  }
+.padding-chart{
+    padding:10px;
+}
+ .stay-chart{
+    width:70%;
+    height:8px;
+    background-color:purple;
+    border-radius: 5px;
+}
+
+.dining-chart{
+    width:50%;
+    height:8px;
+    background-color:orangered;
+    border-radius: 5px;
+}
+.transport-chart{
+    width:40%;
+    height:8px;
+    background-color:rgb(149, 149, 255);
+    border-radius: 5px;
+}
+
+.groceries-chart{
+    width:30%;
+    height:8px;
+    background-color:rgb(78, 212, 78);
+    border-radius: 5px;
+}
+
+.group{
+    width:32vw;
+    height: 40vh;
+    padding: 20px;
+    margin:20px;
+    border:1px silver solid;
+    border-radius: 30px;
+}
+.border-top{
+    border-top: 2px silver solid;
+}
+ .border-buttom{
+    border-bottom: 2px silver solid;
+ }
+
+ .btn-aside{
+    width:80%;
+    height: 30%;
+    padding:20px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #697386;
+    border: 0px;
+    background-color:transparent;
+ }
+
+
+
+
