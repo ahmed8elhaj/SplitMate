@@ -13,7 +13,9 @@
 
   <body class="gap">
 
-    <aside id="aside" class="aside-size space20px">
+    <div class="header-background"></div>
+
+    <header id="aside" class="header-size space20px ">
       <span class="logo">
         <i class="fa-solid fa-people-carry-box logo-icon "></i>
         <strong>Splite Mate</strong>
@@ -26,107 +28,108 @@
         <button id="btn-ALLexpenses" class="btn-aside gap10px"><i class="fa-solid fa-ticket"></i> All Expenses</button>
         <button id="btn-Ballances" class="btn-aside gap10px"> <i class="fa-solid fa-wallet"></i> Balances </button>
       </nav>
-
-      <div >
-
-      </div>
-    </aside>
+    </header>
 
     <main>
-      <header id="top-header" class="space-between">
+      <div id="top-header" class="space-between border-buttom">
         <div>
-          <p>SplitMate /</p>
+          <p class="grey">SplitMate /</p>
           <h1>Dashboard</h1>
         </div>
         <button id="btn-addGroup">
           <i class="fa-solid fa-plus"></i>
           Add group
         </button>
-      </header>
+      </div>
 
-      <section id="welcome">
+      <section id="welcome" class="padding-chart">
+
         <strong class="krishna">MONDAY, 26 MAY</strong>
         <div class="space-between padding-chart">
             <h2>Good morning, Amine</h2>
-            <button>
+            <button class="background-white btn-mounth grey">
             <i class="fa-solid fa-calendar-days"></i>
             This month
             </button>
         </div>
-        <p>Here’s what’s happening across your shared expenses.</p>
-        
+        <p class="grey">Here’s what’s happening across your shared expenses.</p>
       </section>
 
       <section id="hero">
-        <h3>Recent Statistics</h3>
-        <div class="space-evenly">
-          <div>
-            <div>
-              <i class="fa-solid fa-users"></i>
-              <p>Total groups</p>
+
+        <div class="space-evenly padding-chart">
+
+          <div class="space10px">
+
+            <div class="padding-chart gap20px statistic-card">
+              <div><i class="fa-solid fa-users background-grey purple"></i></div>
+              <div class="space10px">
+              <p class="grey">Total groups</p>
               <strong>3</strong>
-              <p>2 active</p>
+              <p class="grey">2 active</p>
+              </div>
             </div>
-            <div>
-              <i class="fa-solid fa-user-plus"></i>
-              <p>Total members</p>
+
+            <div class="padding-chart gap20px statistic-card back">
+              <div><i class="fa-solid fa-user-plus background-grey blue"></i></div>
+              <div class="space10px">
+              <p class="grey">Total members</p>
               <strong>12</strong>
-              <p>Across all groups</p>
+              <p class="grey">Across all groups</p>
+              </div>
             </div>
           </div>
-          <div>
-            <div>
-              <i class="fa-solid fa-file-invoice-dollar"></i>
-              <p>Total expenses</p>
+
+
+          <div class="space10px">
+            <div class="padding-chart gap20px statistic-card">
+              <div><i class="fa-solid fa-file-invoice-dollar background-grey green"></i></div>
+              <div class="space10px">
+              <p class="grey">Total expenses</p>
               <strong>17,528.50 MAD</strong>
-              <p>+12.4% this month</p>
+              <p class="grey">+12.4% this month</p>
+              </div>
             </div>
-            <div>
-              <i class="fa-solid fa-wallet"></i>
-              <p>You are owed</p>
+
+
+            <div class="padding-chart gap20px statistic-card">
+             <div><i class="fa-solid fa-wallet background-grey "></i></div>
+             <div class="space10px">
+              <p class="grey">You are owed</p>
               <strong>250.00 MAD</strong>
-              <p>2 pending repayments</p>
+              <p class="grey">2 pending repayments</p>
+             </div>
             </div>
           </div>
+
         </div>
       </section>
 
       <section id="Recent-expenses" class="">
-        <div class="space-between">
-          <div>
+
+        <div class="space-between padding-chart border-array">
+          <div class="padding-chart">
+            <div class="space10px">
             <strong>Recent expenses</strong>
-            <p>Your latest shared activity</p>
+            <p class="grey">Your latest shared activity</p>
+            </div>
           </div>
-          <button>View all <i class="fa-solid fa-greater-than"></i></button>
+          <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
         </div>
 
-        <div class="space-around">
-          <div>
-            <i class="fa-solid fa-ticket"></i>
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey blue"></i>
             <strong>Riad accommodation</strong>
+            </span>
             <p>Weekend Marrakech · 24 May 2025</p>
           </div>
           <div class="gap">
-            <p>stay</p>
-            <div>
+            <p class="blue">stay</p>
+            <div class="gap">
+              <div>
               <p>1,850.00 MAD</p>
-              <p>Split equally</p>
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-around padding-chart">
-          <div>
-            <i class="fa-solid fa-ticket"></i>
-            <strong>Grocery shopping</strong>
-            <p>Apartment Expenses · 22 May 2025</p>
-          </div>
-          <div class="gap">
-            <p>Groceries</p>
-            <div class="space-evenly gap ">
-                <div>
-              <p>624.50 MAD</p>
               <p>Split equally</p>
               </div>
               <i class="fa-solid fa-ellipsis"></i>
@@ -134,47 +137,78 @@
           </div>
         </div>
 
-        <div class="space-around">
-          <div>
-            <i class="fa-solid fa-ticket"></i>
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey green"></i>
+            <strong>Grocery shopping</strong>
+            </span>
+            <p>Apartment Expenses · 22 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="green">Groceries</p>
+            <div class="gap ">
+                <div>
+              <p>624.50 MAD</p>
+              <p>Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis "></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey purple"></i>
             <strong>Fuel to Essaouira</strong>
+            </span>
             <p>Summer Road Trip · 19 May 2025</p>
           </div>
           <div class="gap">
-            <p>Transport</p>
+            <p class="purple">Transport</p>
 
-            <div>
+            <div class="gap">
+              <div>
               <p>480.00 MAD</p>
               <p>Split equally</p>
+              </div>
               <i class="fa-solid fa-ellipsis"></i>
             </div>
           </div>
         </div>
 
-        <div class="space-around">
-          <div>
-            <i class="fa-solid fa-ticket"></i>
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey"></i>
             <strong>Dinner at Nomad</strong>
+            </span>
             <p>Weekend Marrakech · 18 May 2025</p>
           </div>
           <div class="gap">
             <p>Dining</p>
-            <div>
+            <div class="gap">
+              <div>
               <p>760.00 MAD</p>
               <p>Split equally</p>
+              </div>
               <i class="fa-solid fa-ellipsis"></i>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="charts">
-        <div class="padding-chart">
+      <section id="charts" class="border-array ">
+
+        <div class="padding-chart border-buttom space10px">
           <strong>Spending by category</strong>
-          <p>May 2025</p>
+          <p class="grey">May 2025</p>
         </div>
 
-        <div class="padding-chart">
+        <div class="padding-chart border-buttom">
           <div class="space-between padding-chart">
             <p>Stay</p>
             <p>3,850 MAD</p>
@@ -182,15 +216,15 @@
           <div class="background-chart"><div class="stay-chart"></div></div>
         </div>
 
-        <div class="padding-chart">
-          <div class="space-between padding-chart">
+        <div class="padding-chart border-buttom">
+          <div class="space-between padding-chart border">
             <p>Dining</p>
             <p>2,460 MAD</p>
           </div>
           <div class="background-chart"><div class="dining-chart"></div></div>
         </div>
 
-        <div class="padding-chart">
+        <div class="padding-chart border-buttom">
           <div class="space-between padding-chart">
             <p>Transport</p>
             <p>1,640 MAD</p>
@@ -211,64 +245,110 @@
         </div>
       </section>
 
+
+
+
       <section id="groups">
 
-        <strong>My groups</strong>
-        <div class="space-between padding-chart">
-            <p>Your most active shared spaces</p>
-            <button>View all <i class="fa-solid fa-greater-than"></i></button>
+        <div class="space10px">
+          <div class="padding-chart"><strong class="mygroups-size">My groups</strong></div>
+           <div class="space-between padding-chart">
+            <p class="grey">Your most active shared spaces</p>
+            <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+           </div>
         </div>
 
         <div id="groups-container">
 
             <div class="group space20px">
-                <div class="space-between border-buttom ">
+                <div class="space-between border-buttom padding-bottom ">
                     <div> 
-                        <p>WM</p>
+                        <p class="background-grey krishna">WM</p>
                     </div>
                     <div class="gap">
-                        <P>active</P>
+                        <P class="green">active</P>
                         <i class="fa-solid fa-ellipsis"></i>     
                     </div>
                 </div>
 
-
                 <div class="padding-chart space10px">
                     <strong>Weekend Marrakech</strong>
-                    <p>A long weekend exploring the red city together.</p>
+                    <p class="grey">A long weekend exploring the red city together.</p>
                 </div>
 
                 <div class="gap">
                     <span class="gap10px">
-                        <i class="fa-solid fa-user-plus"></i>
-                        <p>4 members</p>
+                        <i class="fa-solid fa-user-plus grey"></i>
+                        <p class="grey">4 members</p>
                     </span>
                     <span class="gap10px">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>18 May 2025</p>
+                        <i class="fa-solid fa-calendar-days grey"></i>
+                        <p class="grey">18 May 2025</p>
                     </span>
                 </div>
 
                 <div class="padding-chart space10px border-top">
-                    <p>Total expenses</p>
+                    <p class="grey">Total expenses</p>
                     <div class="space-between">
                         <p>3,460.00 MAD</p>
-                        <div >
-                            <p>MAD</p>
+                        <div>
+                            <p class="grey">MAD</p>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+             <div class="group space20px">
+                <div class="space-between border-buttom padding-bottom ">
+                    <div> 
+                        <p class="background-grey krishna">WM</p>
+                    </div>
+                    <div class="gap">
+                        <P class="green">active</P>
+                        <i class="fa-solid fa-ellipsis"></i>     
+                    </div>
+                </div>
+
+                <div class="padding-chart space10px">
+                    <strong>Weekend Marrakech</strong>
+                    <p class="grey">A long weekend exploring the red city together.</p>
+                </div>
+
+                <div class="gap">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-user-plus grey"></i>
+                        <p class="grey">4 members</p>
+                    </span>
+                    <span class="gap10px">
+                        <i class="fa-solid fa-calendar-days grey"></i>
+                        <p class="grey">18 May 2025</p>
+                    </span>
+                </div>
+
+                <div class="padding-chart space10px border-top">
+                    <p class="grey">Total expenses</p>
+                    <div class="space-between">
+                        <p>3,460.00 MAD</p>
+                        <div>
+                            <p class="grey">MAD</p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
+
+
+
+
+            
+
+
+
         </div>
 
-        
-
       </section>
-
-
     </main>
   </body>
 </html>
