@@ -1,0 +1,252 @@
+*{
+    margin:0px;
+    padding:0px;    
+}
+.krishna{
+    color:#4F46E5;
+}
+.background-grey{
+    background-color: rgb(224, 217, 217);
+    border-radius: 5px;
+    padding:5px;
+}
+
+.background-white{
+    background-color: whitesmoke;
+}
+.grey{
+    color:#697386;
+}
+ .purple{
+    color:purple;
+ }
+
+ .green{
+    color:rgb(37, 187, 37)
+ }
+
+ .blue{
+    color:#766fff
+ }
+
+.logo{
+    font-size:20px;
+    padding:25px 0 5px 14px;
+}
+.logo-icon{
+    color:white;
+    background-color:#4F46E5 ;
+    padding:1px;
+    border-radius: 3px;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction:column;
+}
+
+.gap{
+    display: flex;
+    gap: 40px;
+}
+
+.gap10px{
+    display:flex;
+    gap:10px;
+}
+.gap20px{
+    display:flex;
+    gap:20px;
+}
+
+.space10px{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+.space20px{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.space-between{
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.space-evenly{
+    display:flex;
+    justify-content: space-evenly;
+}
+.space-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-size{
+    width:16vw;
+    height: 100vh;
+     border:1px silver solid;
+}
+
+.header-background{
+    width:15vw;
+    height: 100vh;
+}
+
+header{
+    position: fixed;
+}
+
+
+.nav-center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.nav-p{
+     padding-right: 30px;
+}
+
+.background-chart{
+    width:100%;
+    height: 8px;
+    background-color: rgb(210, 207, 207);
+    border-radius: 5px;
+}
+
+main{
+    width:80vw;
+    height: 100vh;
+}
+ #top-header{
+    height:10vh;
+    width:98%;
+    padding: 10px;
+    margin-bottom: 20px;
+ }
+ #btn-addGroup{
+    background-color: #4F46E5;
+    width:13%;
+    height: 40px;
+    padding:5px;
+    border-radius: 5px;
+    color:white;
+ }
+
+ .btn-mounth{
+    padding:5px;
+    border-radius: 5px;
+ }
+ .statistic-card{
+    width: 25vw;
+    height:8vw;
+     border:1px silver solid;
+     border-radius: 10px;
+ }
+
+ #Recent-expenses{
+    width:85%;
+    margin:20px;
+    padding:40px;
+ }
+
+ .btn-viewAll{
+    color:purple;
+    border:0px;
+    background-color: transparent;
+ }
+
+ #charts{
+    width:70vw;
+    margin-left: 3vw;
+ }
+
+.padding-chart{
+    padding:10px;
+}
+
+
+ .stay-chart{
+    width:70%;
+    height:8px;
+    background-color:purple;
+    border-radius: 5px;
+}
+
+.dining-chart{
+    width:50%;
+    height:8px;
+    background-color:orangered;
+    border-radius: 5px;
+}
+.transport-chart{
+    width:40%;
+    height:8px;
+    background-color:rgb(149, 149, 255);
+    border-radius: 5px;
+}
+
+
+.groceries-chart{
+    width:30%;
+    height:8px;
+    background-color:rgb(78, 212, 78);
+    border-radius: 5px;
+}
+
+.group{
+    width:25vw;
+    height: 40vh;
+    padding: 20px;
+    margin:20px;
+    border:1px silver solid;
+    border-radius: 30px;
+}
+
+.border-array{
+    border:2px silver solid;
+    border-radius:10px ;
+}
+
+.border-top{
+    border-top: 2px silver solid;
+}
+ .border-buttom{
+    border-bottom: 2px silver solid;
+ }
+
+ .btn-aside{
+    width:80%;
+    height: 30%;
+    padding:20px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #697386;
+    border: 0px;
+    background-color:transparent;
+ }
+
+.mygroups-size{
+    font-size: 30px;
+}
+   #groups{
+      width:70vw;  
+      padding:20px;
+      margin-left: 4vw;
+    
+ }
+ .padding-bottom{
+    padding-bottom: 10px;
+ }
+
+
+
+
