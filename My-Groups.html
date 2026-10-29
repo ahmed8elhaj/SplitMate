@@ -7,11 +7,12 @@
     <title>SplitMate</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
     <section id="my-groups">
-        <header class="flex items-center justify-between border-b border-gray-200 bg-white px-9 py-5">
+        <header class=" flex items-center justify-between border-b border-gray-200 bg-white px-9 py-5 ">
             <div class="flex flex-col gap-1">
                 <p class="text-xs text-gray-400">
                     SplitMate /
@@ -20,12 +21,12 @@
                     My Groups
                 </h1>
             </div>
-            <button
+            <button id="create-group"
                 class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700">
                 <span class="text-xl leading-none">+</span>Create group</button>
         </header>
 
-        
+
         <div class="px-9 py-7 bg-gray-50">
             <div>
                 <h1 class="text-2xl font-medium text-slate-800">
@@ -66,67 +67,22 @@
         </div>
         <section class="px-4 py-6 sm:px-9 bg-gray-50">
             <div class="mb-3 flex items-center justify-between">
-                <p class="text-xs text-slate-400">3 groups</p>
+                <p class="text-xs text-slate-400" id="groups-counter"></p>
+                <p id="empty-message" class="text-slate-500 hidden">
+                    No tasks yet. Add one above.
+                </p>
                 <p class="text-xs text-slate-400">Updated just now</p>
             </div>
             <div id="groups-container" class="flex flex-wrap gap-4">
-                <article
-                    class="flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm md:w-[calc(50%-8px)] xl:w-[calc(33.333%-11px)]">
-                    <div class="flex items-start justify-between">
-                        <div
-                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-xs font-semibold text-red-500">
-                            WM
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <p class="rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700">
-                                Active
-                            </p>
-                            <button class="text-lg text-slate-400 hover:text-slate-700" aria-label="Group options">
-                                <i class="ri-more-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-base font-medium text-slate-800">
-                            Weekend Marrakech
-                        </h5>
-                        <p class="mt-1 text-xs text-slate-500">
-                            A long weekend exploring the red city together.
-                        </p>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
-                        <p class="flex items-center gap-1">
-                            <i class="ri-user-add-line text-base"></i>
-                            4 members
-                        </p>
-                        <p class="flex items-center gap-1">
-                            <i class="ri-calendar-line text-base"></i>
-                            18 May 2025
-                        </p>
-                    </div>
-                    <div class="flex items-center justify-between border-t border-slate-200 pt-4">
-                        <div>
-                            <p class="text-xs text-slate-400">
-                                Total expenses
-                            </p>
-                            <h5 class="mt-1 text-sm font-semibold text-slate-800">
-                                3,460.00 MAD
-                            </h5>
-                        </div>
-                        <span class="rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-500">
-                            MAD
-                        </span>
-                    </div>
-                    <button
-                        class="mt-auto flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-50 py-3 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
-                        Open group
-                        <i class="ri-arrow-right-s-line text-lg"></i>
-                    </button>
-                </article>
+
+
+
+
             </div>
         </section>
         </article>
-        <div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 hidden">
+        <div id="group-form-contenaire"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 hidden">
             <section class="w-full max-w-[520px] overflow-hidden rounded-2xl bg-white shadow-2xl ">
                 <div class="flex items-start justify-between border-b border-gray-200 px-6 py-5">
                     <div>
@@ -137,19 +93,20 @@
                             Create a space to track expenses together.
                         </small>
                     </div>
-                    <button type="button"
+                    <button type="button" id="close-groupe-form"
                         class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200">
                         <i class="ri-close-line text-xl"></i>
                     </button>
                 </div>
-                <form class="flex flex-col">
+                <form id="create-group-form" class="flex flex-col">
                     <div class="flex flex-col gap-4 px-6 py-5">
                         <div class="flex flex-col gap-2">
                             <label for="group-name" class="text-xs font-medium text-slate-700">
                                 Group name <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" id="group-name" name="nom" required placeholder="e.g. Weekend Marrakech"
+                            <input type="text" id="group-name" name="nom" placeholder="e.g. Weekend Marrakech"
                                 class="w-full rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500">
+                            <small id="name-error" class="text-xs text-red-400"></small>
                         </div>
                         <div class="flex flex-col gap-2">
                             <label for="group-description" class="text-xs font-medium text-slate-700">
@@ -158,7 +115,7 @@
                             <textarea id="group-description" name="description" rows="3"
                                 placeholder="What is this group for?"
                                 class="w-full resize-y rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500"></textarea>
-                            <small class="text-xs text-slate-400">
+                            <small id="description-error" class="text-xs text-slate-400">
                                 Keep it short and helpful.
                             </small>
                         </div>
@@ -167,24 +124,28 @@
                                 <label for="group-currency" class="text-xs font-medium text-slate-700">
                                     Currency <span class="text-red-500">*</span>
                                 </label>
-                                <select id="group-currency" name="devise" required
+                                <select id="group-currency" name="devise"
                                     class="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
                                     <option value="MAD">MAD — Moroccan Dirham</option>
                                     <option value="EUR">EUR — Euro</option>
                                     <option value="USD">USD — US Dollar</option>
                                 </select>
+                                <small id="currency-error" class="text-xs text-slate-400">
+                                    Choose the currency
+                                </small>
                             </div>
                             <div class="flex min-w-0 flex-1 flex-col gap-2">
                                 <label for="group-date" class="text-xs font-medium text-slate-700">
                                     Start date <span class="text-red-500">*</span>
                                 </label>
-                                <input type="date" id="group-date" name="dateDebut" required
+                                <input type="date" id="group-date" name="dateDebut"
                                     class="w-full min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
+                                <small id="date-error" class="text-xs text-red-400"></small>
                             </div>
                         </div>
                     </div>
                     <div class="flex items-center justify-end gap-3 border-t border-slate-200 px-6 py-5">
-                        <button type="button"
+                        <button type="button" id="cancel"
                             class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
                             Cancel
                         </button>
@@ -199,6 +160,74 @@
             </section>
         </div>
     </section>
+
+
+    <!-- <section class="hidden">
+        <article
+            class="m-10 flex  gap-5 rounded-2xl bg-white px-7 py-6 items-center justify-between border flex flex-wrap">
+            <div>
+                <div class="flex items-start justify-between">
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-xs font-semibold text-red-500">
+                        WM
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p class="rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700">
+                            Active
+                        </p>
+                        <p class="rounded-full bg-gray-500 px-2 py-1 text-xs font-medium text-black">MAD</p>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-base font-medium text-slate-800">
+                        Weekend Marrakech
+                    </h5>
+                    <p class="mt-1 text-xs text-slate-500">
+                        A long weekend exploring the red city together.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                    <p>
+                        <i class="ri-user-add-line text-base"></i>
+                        4 members
+                    </p>
+                    <p>
+                        <i class="ri-calendar-line text-base"></i>
+                        18 May 2025
+                    </p>
+                </div>
+            </div>
+            <div class=" px-9 flex items-center justify-between md:border-l border-gray-200">
+                <div>
+                    <div>
+                        <p class="text-xs text-slate-400">
+                            Total expenses
+                        </p>
+                        <h5 class="mt-1 text-sm font-semibold text-slate-800">
+                            3,460.00 MAD
+                        </h5>
+                        <small class="text-xs text-green-400">You are owed 250 MAD</small>
+                    </div>
+                </div>
+                <button
+                    class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 outline-none">
+                    Edit groupe
+                </button>
+
+            </div>
+        </article>
+
+    </section> -->
+
+<script src="./js/utils.js"></script>
+<script src="./js/storage.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/groupes.js"></script>
+<script src="./js/membres.js"></script>
+<script src="./js/depenses.js"></script>
+<script src="./js/soldes.js"></script>
+<script src="./js/filtres.js"></script>
+<script src="./js/main.js"></script>
 </body>
 
 </html>
