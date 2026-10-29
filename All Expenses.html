@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>slipt Mate</title>
+  </head>
+
+  <body class="gap">
+
+    <div class="header-background"></div>
+
+    <header id="aside" class="header-size space20px ">
+      <span class="logo">
+        <i class="fa-solid fa-people-carry-box logo-icon "></i>
+        <strong>Splite Mate</strong>
+      </span>
+
+      <nav class="flex-column nav-center">
+        <span class="nav-p"><p class="grey">Workspace</p></span>
+        <button id="btn-Dashboard" class="btn-aside gap10px"> <i class="fa-solid fa-table-cells-large"></i> Dashboard</button>
+        <button id="btn-Mygroups" class="btn-aside gap10px"> <i class="fa-solid fa-users"></i> My Groups</button>
+        <button id="btn-ALLexpenses" class="btn-aside gap10px"><i class="fa-solid fa-ticket"></i> All Expenses</button>
+        <button id="btn-Ballances" class="btn-aside gap10px"> <i class="fa-solid fa-wallet"></i> Balances </button>
+      </nav>
+    </header>
+
+    <main>
+      <div id="top-header" class="space-between border-buttom">
+        <div>
+          <p class="grey">SplitMate /</p>
+          <h1>All Expenses</h1>
+        </div>
+        <button id="btn-addGroup">
+          <i class="fa-solid fa-plus"></i>
+          Add expens
+        </button>
+      </div>
+
+
+
+      <section id="Recent-expenses" class="">
+
+        <div class="space-between padding-chart border-array">
+          <div class="padding-chart">
+            <div class="space10px">
+            <strong>ALL expenses</strong>
+            <p class="grey">Review and manage every shared purchase</p>
+            </div>
+          </div>
+          <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+        </div>
+
+
+
+        <div class=" padding-chart border-array flex gap10px">
+        
+          <div id="expenses-search-container" class="border-array">
+            <i class="fa-solid fa-magnifying-glass grey"></i>
+            <input id="expenses-search" type="text" class="">
+          </div>
+
+          <div id="expenses-selectedCategories-container">
+            <select id="expenses-selectedCategories" class="expenses-options">
+              <option>All categories</option>
+              <option>Dining</option>
+              <option>Tronsport</option>
+            </select>
+          </div>
+
+            <div id="expenses-payers-container" >
+            <select id="expenses-payers" class="expenses-options">
+              <option>All payers</option>
+              <option>Ahmed</option>
+              <option>Sara</option>
+            </select>
+          </div>
+
+          
+            <div>
+            <select class="expenses-options">
+              <option>Newest first</option>
+              <option>Highest amount</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey blue"></i>
+            <strong>Riad accommodation</strong>
+            </span>
+            <p class="grey">Weekend Marrakech · 24 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="blue">stay</p>
+            <div class="gap">
+              <div class="space5px">
+              <p>1,850.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey green"></i>
+            <strong>Grocery shopping</strong>
+            </span>
+            <p class="grey">Apartment Expenses · 22 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="green">Groceries</p>
+            <div class="gap ">
+                <div class="space5px">
+              <p>624.50 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis "></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey purple"></i>
+            <strong>Fuel to Essaouira</strong>
+            </span>
+            <p class="grey">Summer Road Trip · 19 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="purple">Transport</p>
+
+            <div class="gap">
+              <div class="space5px">
+              <p>480.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey"></i>
+            <strong>Dinner at Nomad</strong>
+            </span>
+            <p class="grey">Weekend Marrakech · 18 May 2025</p>
+          </div>
+          <div class="gap">
+            <p>Dining</p>
+            <div class="gap">
+              <div class="space5px">
+              <p>760.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+   
+    </main>
+  </body>
+</html>

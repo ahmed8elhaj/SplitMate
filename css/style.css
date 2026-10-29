@@ -62,6 +62,11 @@
     display:flex;
     gap:20px;
 }
+.space5px{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
 
 .space10px{
     display: flex;
@@ -134,6 +139,14 @@ main{
  }
  #btn-addGroup{
     background-color: #4F46E5;
+    width:13%;
+    height: 40px;
+    padding:5px;
+    border-radius: 5px;
+    color:white;
+ }
+ #btn-addexpenses{
+       background-color: #4F46E5;
     width:13%;
     height: 40px;
     padding:5px;
@@ -247,6 +260,24 @@ main{
     padding-bottom: 10px;
  }
 
+ #expenses-search{
+    color:#697386;
+    border-color: transparent;
+ }
+#expenses-search-container{
+    padding:7px;
+    width:15vw;
+}
+
+
+.expenses-options{
+  padding:10px;
+    width:15vw;
+       color:#697386;
+    border-color: transparent;
+     border:2px silver solid;
+    border-radius:10px ;
+}
 
 
 
