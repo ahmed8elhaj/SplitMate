@@ -61,7 +61,7 @@
         
           <div id="expenses-search-container" class="border-array">
             <i class="fa-solid fa-magnifying-glass grey"></i>
-            <input id="expenses-search" type="text" class="">
+            <input id="expenses-search" type="text" placeholder="Search expenses...">
           </div>
 
           <div id="expenses-selectedCategories-container">
@@ -176,84 +176,147 @@
         
       </section>
 
-      <section id="Add-expenses">
-        <div>
+
+
+      <section id="Add-expenses" class="padding-chart border-array">
+
+        <div class="space5px padding-chart border-buttom">
           <strong>Add new expense</strong>
           <p class="grey">Add the details and choose how to split it.</p>
         </div>
 
-        <div class="space10px">
+        <div class="space10px padding-chart">
           <label>Expense title*</label>
-          <input type="text">
+          <input id="Expenses-title-input" type="text" class="border-array" placeholder=" e.g. Dinner at Nomad">
         </div>
 
 
-        <div>
-            <div>
-              <div>
+        <div class="space-evenly padding-chart">
+            <div class="space20px padding-chart">
+              <div class="gap10px">
                 <label>Amount*</label>
-                <input type="number">
+                <input class="border-array" type="number" placeholder="0.00                          MAD">
               </div>
 
-              <div>
+              <div class="gap20px">
                 <label>Date*</label>
-                <input type="date">
+                <input class="border-array" type="date">
               </div>
             </div>
             
-            <div>
-              <div>
+            <div class="space20px">
+              <div class="gap20px">
                 <label>Category*</label>
-                <input type="text">
+                <select class="border-array">
+                  <option>Dining</option>
+                  <option>Transport</option>
+                  <option>Stay</option>
+                </select>
               </div>
 
-              <div>
+              <div class="gap20px">
                 <label>Paid by*</label>
-                <input type="text">
+                <select class="border-array">
+                  <option>Ahmed hamadi</option>
+                  <option>ali</option>
+                </select>
               </div>
             </div>
         </div>
 
-        <div>
+        <div class="padding-chart space20px">
           <p>Participants</p>
-          <div>
-            <div>
+          <div class="space-evenly padding-chart">
+            <div class="space10px border-array padding-chart">
               <input type="checkbox">
               <p>Ahmed</p>
             </div>
-            <div>
+            <div class="space10px border-array padding-chart">
               <input type="checkbox">
               <p>Sara</p>
             </div>
-            <div>
+            <div class="space10px border-array padding-chart">
               <input type="checkbox">
               <p>Youssef</p>
             </div>
-            <div>
+            <div class="space10px border-array padding-chart">
               <input type="checkbox">
               <p>Amine</p>
             </div>
           </div>
         </div>
-        
-        <div>
-          <div>
-            <div>
+
+
+        <div class="gap padding-chart">
+
+            <div class="border-array padding-chart gap20px padding-left">
+              <div>
                <input type="checkbox">
+              </div>
+              <div class="space10px">
                <p>Equal Split</p>
                <p class="grey">Same amount for everyone</p>
+              </div>
             </div>
-            </div>
+            
 
-            <div>
-              <p></p>
-              
+            <div class="border-array padding-chart gap20px padding-left">
+              <div>
+              <input type="checkbox">
+              </div>
+              <div class="space10px">
+              <p>Custom split</p>
+              <p class="grey">set individual amounts</p>
+              </div>
             </div>
 
         </div>
 
+        <div class="border-array padding-chart space10px"> 
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Ahmed</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Sara</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Aziz</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+          
+
+        <div class="padding-chart space-between">
+          <p>Assigned: 500.00 MAD</p>
+          <p class="green">Remaining: 0.00 MAD</p>
+        </div>
+        
+      </div>
+
+        <div class=" border-array space-between padding-chart">
+          <div class="gap10px">
+          <i class="fa-solid fa-user-plus krishna"></i>
+          <p class="krishna">3 participants selected</p>
+          </div>
+          <p class="krishna">166.67 MAD each</p>
+        </div>
+
+
+        <div class=" border-array padding-chart flex-end gap10px">
+          <button id="concel-expenses" class="background-grey " >cancel</button>
+          <button id="save-expenses" class="white"><i class="fa-solid fa-check"></i> Save Expenses</button>
+        </div>
+
 
       </section>
+
+
    
     </main>
   </body>
