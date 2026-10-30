@@ -1,3 +1,4 @@
+const deleteGroupButton = document.getElementById('delete-button')
 function showHiddenElement(button, hiddenElement) {
     button.addEventListener('click', () => {
         hiddenElement.classList.remove("hidden");
@@ -29,6 +30,8 @@ function showGroups(groupes) {
         return;
     }
     emptyGroupsMessage.classList.add("hidden");
+
+
     groupes.forEach(element => {
         let statusGroupe;
         let statusGroupeColor;
@@ -40,7 +43,10 @@ function showGroups(groupes) {
             statusGroupe = "Closed"
             statusGroupeColor = "bg-slate-400"
         }
+
         const groupCarte = document.createElement('article');
+        groupCarte.dataset.id = 'groupe-' + element.id;
+        let buttonEditId = 'button-edit-' + element.id
         groupCarte.className = "flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm md:w-[calc(50%-8px)] xl:w-[calc(33.333%-11px)]";
         groupCarte.innerHTML = `<div class="flex items-start justify-between">
                                                 <div
@@ -51,7 +57,7 @@ function showGroups(groupes) {
                                                     <p class="rounded-full ${statusGroupeColor} px-2 py-1 text-xs font-medium text-green-700">
                                                         ${statusGroupe}
                                                     </p>
-                                                    <button class="text-lg text-slate-400 hover:text-slate-700" aria-label="Group options">
+                                                    <button data-id='${buttonEditId}' class="text-lg text-slate-400 hover:text-slate-700 group-options" aria-label="Group options">
                                                         <i class="ri-more-fill"></i>
                                                     </button>
                                                 </div>
@@ -95,10 +101,47 @@ function showGroups(groupes) {
         groupsContainer.appendChild(groupCarte)
     })
 };
+const titleFormGroup = document.getElementById('form-title');
+const formTitleDescription = document.getElementById('form-title-description');
+// const formTitleDescription=document.getElementById('form-title-description');
 
 
+let editingGroupId = null;
+function handleGroupOptions(container, groupes) {
+    container.addEventListener('click', event => {
+        const button = event.target.closest('.group-options');
+        if (!button) return;
+        const id = Number(button.dataset.id.replace('button-edit-', ''));
+        const selectedGroup = groupes.find(
+            group => group.id === id
+        );
+        if (!selectedGroup) return;
+        editingGroupId = selectedGroup.id;
 
 
+        console.log(selectedGroup);
+        groupFormContenair.classList.remove("hidden");
+        deleteGroupButton.classList.remove("hidden");
+        groupeNameInpute.value = selectedGroup.groupeName;
+        groupeDescriptionInpute.value = selectedGroup.groupeDescription;
+        groupeCurrencyInpute.value = selectedGroup.groupeCurrency;
+        groupeDateInpute.value = selectedGroup.groupeDate;
+        submitButton.innerHTML = `<i class="ri-check-line text-lg text-white">Save changes</i>`
+    });
+}
+deleteGroupButton.addEventListener('click', () => {
+    if (editingGroupId === null) return;
+    const index = Groupe.findIndex(
+        group => group.id === editingGroupId
+    );
+    if (index !== -1) {
+        Groupe.splice(index, 1);
+        showGroups(Groupe);
+    }
+    groupFormContenair.classList.add("hidden");
+    createGroupForm.reset();
+    editingGroupId = null;
+});
 
 
 
