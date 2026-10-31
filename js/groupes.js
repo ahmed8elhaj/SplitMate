@@ -19,6 +19,7 @@ const emptyGroupsMessage = document.getElementById("empty-message");
 
 const cancelButton = document.getElementById("cancel");
 
+const submitButton = document.getElementById('submit-button')
 let groupeId = 11;
 
 let Groupe = [
@@ -123,28 +124,7 @@ let Groupe = [
         color: "bg-green-50 text-green-600"
     }
 ];
-
 showGroups(Groupe)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function checkIfEmpty() {
     let isValide = true
     if (groupeNameInpute.value.trim() === "") {
@@ -163,39 +143,49 @@ function checkIfEmpty() {
     }
     return isValide
 }
-
-
-
-
 function getFormData() {
     createGroupForm.addEventListener('submit', event => {
         event.preventDefault();
-
         if (!checkIfEmpty()) {
-            return
+            return;
         }
-        let newGroupeObject = {
-            id: groupeId++,
-            groupeName: groupeNameInpute.value.trim(),
-            groupeDescription: groupeDescriptionInpute.value.trim(),
-            groupeCurrency: groupeCurrencyInpute.value.trim(),
-            groupeDate: groupeDateInpute.value.trim(),
-            cloture: false,
-            avatar: getFirstLetterName(groupeNameInpute.value),
-            color: getRandomColor()
+        if (editingGroupId !== null) {
+            const selectedGroup = Groupe.find(
+                group => group.id === editingGroupId
+            );
+            if (!selectedGroup) return;
+            selectedGroup.groupeName = groupeNameInpute.value.trim();
+            selectedGroup.groupeDescription = groupeDescriptionInpute.value.trim();
+            selectedGroup.groupeCurrency = groupeCurrencyInpute.value;
+            selectedGroup.groupeDate = groupeDateInpute.value;
+            selectedGroup.avatar = getFirstLetterName(
+            groupeNameInpute.value
+            );
+        } else {
+            const newGroupeObject = {
+                id: groupeId++,
+                groupeName: groupeNameInpute.value.trim(),
+                groupeDescription: groupeDescriptionInpute.value.trim(),
+                groupeCurrency: groupeCurrencyInpute.value,
+                groupeDate: groupeDateInpute.value,
+                cloture: false,
+                avatar: getFirstLetterName(groupeNameInpute.value),
+                color: getRandomColor()
+            };
+            Groupe.push(newGroupeObject);
         }
-
-
-        Groupe.push(newGroupeObject);
-
-        showGroups(Groupe)
-
-    })
-
-
+        showGroups(Groupe);
+        groupFormContenair.classList.add("hidden");
+        createGroupForm.reset();
+        editingGroupId = null;
+    });
 }
+
 showHiddenElement(createGroupBtn, groupFormContenair);
 hideTheElement(closeGroupeFormBtn, groupFormContenair);
+
 getFormData()
 
 emptyAndClose(cancelButton, groupFormContenair)
+
+handleGroupOptions(groupsContainer, Groupe);
