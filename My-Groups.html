@@ -25,8 +25,6 @@
                 class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700">
                 <span class="text-xl leading-none">+</span>Create group</button>
         </header>
-
-
         <div class="px-9 py-7 bg-gray-50">
             <div>
                 <h1 class="text-2xl font-medium text-slate-800">
@@ -74,10 +72,6 @@
                 <p class="text-xs text-slate-400">Updated just now</p>
             </div>
             <div id="groups-container" class="flex flex-wrap gap-4">
-
-
-
-
             </div>
         </section>
         </article>
@@ -160,8 +154,459 @@
             </section>
         </div>
     </section>
+<section id="Balances">
+    <header class="flex items-center justify-between border-b border-gray-200 bg-white px-4 sm:px-9 py-5">
+        <div class="flex flex-col gap-1">
+            <p class="text-xs text-gray-400">SplitMate /</p>
+            <h1 class="text-lg font-medium text-slate-800">Balances</h1>
+        </div>
+    </header>
 
+    <div class="px-4 sm:px-9 py-7 bg-gray-50">
 
+        <div class="flex flex-col gap-5 rounded-2xl bg-indigo-600 px-7 py-6 text-white shadow-lg sm:flex-row sm:items-center sm:justify-between sm:px-9">
+
+            <div class="flex flex-col gap-2">
+                <small class="text-xs text-indigo-100">Total outstanding</small>
+                <h1 class="text-3xl font-bold">250.00 MAD</h1>
+                <small class="text-xs text-indigo-200">Across 2 pending reimbursements</small>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+                <button type="button" id="plus-btn"
+                    class="flex h-10 items-center justify-center rounded-xl bg-white/15 px-3 text-xs font-semibold text-white hover:bg-white/25">
+                    +250
+                </button>
+
+                <input type="number" id="amount-input" min="0" step="0.01"
+                    aria-label="Amount"
+                    class="w-20 min-w-0 border-b border-white/40 bg-transparent px-2 py-2 text-center text-sm text-white outline-none">
+
+                <button type="button" id="minus-btn"
+                    class="flex h-10 items-center justify-center rounded-xl bg-white/15 px-3 text-xs font-semibold text-white hover:bg-white/25">
+                    -250
+                </button>
+            </div>
+        </div>
+        <div id="balances-members-container" class="flex flex-wrap gap-4 mt-4">
+            <div class="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:w-[calc(50%-8px)] xl:w-[calc(25%-12px)]">
+
+                <div class="flex min-w-0 items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                        AB
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-semibold text-slate-800">Ahmed</h5>
+                        <small class="text-xs text-slate-400">Credit</small>
+                    </div>
+                </div>
+
+                <h5 class="text-xs font-semibold text-green-600">+250.00 MAD</h5>
+            </div>
+
+            
+            <div class="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:w-[calc(50%-8px)] xl:w-[calc(25%-12px)]">
+
+                <div class="flex min-w-0 items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                        SI
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-semibold text-slate-800">Sara</h5>
+                        <small class="text-xs text-slate-400">Owes</small>
+                    </div>
+                </div>
+
+                <h5 class="text-xs font-semibold text-red-600">-50.00 MAD</h5>
+            </div>
+
+            <div class="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:w-[calc(50%-8px)] xl:w-[calc(25%-12px)]">
+
+                <div class="flex min-w-0 items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                        YA
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-semibold text-slate-800">Youssef</h5>
+                        <small class="text-xs text-slate-400">Owes</small>
+                    </div>
+                </div>
+
+                <h5 class="text-xs font-semibold text-red-600">-200.00 MAD</h5>
+            </div>
+            <div class="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:w-[calc(50%-8px)] xl:w-[calc(25%-12px)]">
+
+                <div class="flex min-w-0 items-center gap-3">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                        AK
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-semibold text-slate-800">Amine</h5>
+                        <small class="text-xs text-slate-400">Settled</small>
+                    </div>
+                </div>
+
+                <h5 class="text-xs font-semibold text-slate-500">0.00 MAD</h5>
+            </div>
+
+        </div>
+
+        <section class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-200 px-5 py-5">
+                <h2 class="text-sm font-medium text-slate-800">Suggested reimbursements</h2>
+                <p class="mt-1 text-xs text-slate-400">The simplest way to settle everyone up</p>
+            </div>
+
+            <div class="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+
+                <div class="flex w-full items-center justify-between gap-4 lg:max-w-[550px]">
+
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                            SI
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-semibold text-slate-800">Sara</h3>
+                            <small class="text-xs text-slate-400">Owes</small>
+                        </div>
+                    </div>
+
+                    <i class="ri-arrow-right-s-line text-xl text-slate-400"></i>
+
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-xs font-semibold text-sky-700">
+                            AB
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-semibold text-slate-800">Ahmed</h3>
+                            <small class="text-xs text-slate-400">Receiver</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 lg:justify-end lg:gap-8">
+                    <h3 class="text-xs font-semibold text-slate-800">50.00 MAD</h3>
+                    <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">Pending</span>
+                    <button type="button"
+                        class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-700 hover:bg-slate-50">
+                        Mark as paid
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+
+                <div class="flex w-full items-center justify-between gap-4 lg:max-w-[550px]">
+
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                            YA
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-semibold text-slate-800">Youssef</h3>
+                            <small class="text-xs text-slate-400">Owes</small>
+                        </div>
+                    </div>
+
+                    <i class="ri-arrow-right-s-line text-xl text-slate-400"></i>
+
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-xs font-semibold text-sky-700">
+                            AB
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-semibold text-slate-800">Ahmed</h3>
+                            <small class="text-xs text-slate-400">Receiver</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 lg:justify-end lg:gap-8">
+                    <h3 class="text-xs font-semibold text-slate-800">200.00 MAD</h3>
+                    <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">Pending</span>
+                    <button type="button"
+                        class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-700 hover:bg-slate-50">
+                        Mark as paid
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+            <div class="border-b border-slate-200 px-5 py-5">
+                <h2 class="text-sm font-medium text-slate-800">Completed reimbursements</h2>
+                <p class="mt-1 text-xs text-slate-400">Previously settled payments</p>
+            </div>
+
+            <div class="flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-100">
+                        <i class="ri-check-line text-lg text-green-600"></i>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-semibold text-slate-800">Amine paid Sara</p>
+                        <small class="mt-1 block text-xs text-slate-400">12 May 2025</small>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-8 sm:justify-end">
+                    <h5 class="text-xs font-semibold text-slate-800">320.00 MAD</h5>
+                    <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">Paid</span>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</section>
+<section id="group-details" class="p-4 md:p-7 bg-slate-50 min-h-screen">
+
+    
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm mb-6">
+
+        <div class="flex flex-col md:flex-row md:items-center gap-5">
+
+            
+            <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-bold">
+                WM
+            </div>
+
+            
+            <div class="flex-1">
+
+                
+                <div class="flex gap-2 mb-2">
+                    <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">
+                        Active
+                    </span>
+
+                    <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-full">
+                        MAD
+                    </span>
+                </div>
+
+                <h1 class="text-xl font-semibold text-slate-800">
+                    Weekend Marrakech
+                </h1>
+
+                <p class="text-sm text-slate-500 mt-1">
+                    A long weekend exploring the red city together.
+                </p>
+
+                
+                <div class="flex flex-wrap gap-5 mt-3 text-xs text-slate-500">
+                    <span>♙ 4 members</span>
+                    <span>▢ 18–25 May 2025</span>
+                </div>
+
+            </div>
+
+            
+            <div class="md:border-l md:pl-6 border-slate-200">
+
+                <p class="text-xs text-slate-400">
+                    Total expenses
+                </p>
+
+                <h2 class="text-xl font-bold text-slate-800 mt-1">
+                    3,460.00 MAD
+                </h2>
+
+                <p class="text-xs text-green-600 mt-2">
+                    You are owed 250 MAD
+                </p>
+
+            </div>
+
+        
+            <button id="edit-group-details-btn"
+                class="border border-slate-300 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                Edit group
+            </button>
+
+        </div>
+    </div>
+
+    <div class="flex gap-6 border-b border-slate-200 mb-5 overflow-x-auto">
+
+        <button id="tab-expenses"
+            class="border-b-2 border-indigo-600 text-indigo-600 px-3 py-3 text-sm font-medium whitespace-nowrap">
+            Expenses
+        </button>
+
+        <button id="tab-members"
+            class="text-slate-500 px-3 py-3 text-sm whitespace-nowrap">
+            Members
+            <span class="bg-indigo-100 text-indigo-600 rounded-full px-2 text-xs">
+                4
+            </span>
+        </button>
+
+        <button id="tab-balances"
+            class="text-slate-500 px-3 py-3 text-sm whitespace-nowrap">
+            Balances
+        </button>
+
+        <button id="tab-reimbursements"
+            class="text-slate-500 px-3 py-3 text-sm whitespace-nowrap">
+            Reimbursements
+            <span class="bg-indigo-100 text-indigo-600 rounded-full px-2 text-xs">
+                2
+            </span>
+        </button>
+
+    </div>
+    <div id="group-expenses-section" class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 border-b border-slate-200">
+
+            <div>
+                <h2 class="text-base font-semibold text-slate-800">
+                    Group expenses
+                </h2>
+
+                <p class="text-xs text-slate-400 mt-1">
+                    5 expenses · 3,460.00 MAD total
+                </p>
+            </div>
+
+            <button id="add-group-expense-btn"
+                class="bg-indigo-600 text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-indigo-700">
+                + Add expense
+            </button>
+
+        </div>
+        <div class="flex flex-wrap gap-3 p-5 border-b border-slate-200">
+
+            <input
+                id="group-expense-search"
+                type="text"
+                placeholder="Search expenses..."
+                class="border border-slate-300 rounded-lg px-4 py-3 text-sm w-full sm:w-72 outline-none focus:border-indigo-500"
+            >
+
+            <select id="group-expense-category"
+                class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                <option>All categories</option>
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Stay</option>
+                <option>Shopping</option>
+                <option>Other</option>
+            </select>
+
+            <select id="group-expense-payer"
+                class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                <option>All payers</option>
+                <option>Ahmed</option>
+                <option>Sara</option>
+                <option>Karim</option>
+            </select>
+
+            <select id="group-expense-sort"
+                class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                <option>Newest first</option>
+                <option>Oldest first</option>
+                <option>Highest amount</option>
+                <option>Lowest amount</option>
+            </select>
+
+        </div>
+
+        <div id="group-expenses-container">
+
+            <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+                <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center">
+                    ▤
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-sm font-semibold text-slate-800">
+                        Riad accommodation
+                    </h3>
+
+                    <p class="text-xs text-slate-400 mt-1">
+                        Weekend Marrakech · 24 May 2025
+                    </p>
+                </div>
+
+                <span class="bg-purple-100 text-purple-600 rounded-full px-3 py-1 text-xs">
+                    Stay
+                </span>
+
+                <div class="text-sm">
+                    <p class="text-xs text-slate-400">Paid by</p>
+                    <p class="font-medium text-slate-800">Ahmed</p>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-800">
+                        1,850.00 MAD
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Split equally
+                    </p>
+                </div>
+
+                <button class="text-slate-400 px-2 text-xl">
+                    ⋯
+                </button>
+
+            </div>
+            <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+                <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center">
+                    ◈
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-sm font-semibold text-slate-800">
+                        Dinner at restaurant
+                    </h3>
+
+                    <p class="text-xs text-slate-400 mt-1">
+                        Weekend Marrakech · 23 May 2025
+                    </p>
+                </div>
+
+                <span class="bg-orange-100 text-orange-600 rounded-full px-3 py-1 text-xs">
+                    Food
+                </span>
+
+                <div class="text-sm">
+                    <p class="text-xs text-slate-400">Paid by</p>
+                    <p class="font-medium text-slate-800">Sara</p>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-800">
+                        620.00 MAD
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Split equally
+                    </p>
+                </div>
+
+                <button class="text-slate-400 px-2 text-xl">
+                    ⋯
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <script src="./js/utils.js"></script>
 <script src="./js/storage.js"></script>
 <script src="./js/ui.js"></script>
