@@ -420,3 +420,34 @@ body { padding-left: 230px; overflow-x: hidden; background: #f8fafc; }
 #delete-button.hidden {
     display: none !important;
 }
+
+/* Dashboard group cards: three equal columns, using Flexbox. */
+#dashboard #dashboard-groups-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+#dashboard #dashboard-groups-container > * {
+    box-sizing: border-box;
+    flex: 0 0 calc((100% - 32px) / 3);
+    width: calc((100% - 32px) / 3);
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    #dashboard #dashboard-groups-container > * {
+        flex-basis: calc((100% - 16px) / 2);
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 767px) {
+    #dashboard #dashboard-groups-container > * {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}

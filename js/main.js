@@ -58,6 +58,47 @@ balancesButton.addEventListener('click', function () {
 });
 highlightButton(dashboardButton);
 
+// When My Groups is opened normally, show the list again.
+myGroupsButton.addEventListener('click', function () {
+    document.getElementById('group-details').classList.add('hidden');
+    document.getElementById('groups-page-header').classList.remove('hidden');
+    document.getElementById('groups-page-filters').classList.remove('hidden');
+    document.getElementById('groups-page-list').classList.remove('hidden');
+});
+
+// Group Details tabs: reuse the same show/hide functions used by the sidebar.
+const groupExpensesTab = document.getElementById('tab-expenses');
+const groupMembersTab = document.getElementById('tab-members');
+const groupBalancesTab = document.getElementById('tab-balances');
+const groupExpensesSection = document.getElementById('group-expenses-section');
+const groupMembersSection = document.getElementById('group-members-section');
+
+showHiddenElement(groupExpensesTab, groupExpensesSection);
+hideTheElement(groupExpensesTab, groupMembersSection);
+
+showHiddenElement(groupMembersTab, groupMembersSection);
+hideTheElement(groupMembersTab, groupExpensesSection);
+
+// Balances already exists as a separate page, so reuse its sidebar button.
+groupBalancesTab.addEventListener('click', function () {
+    balancesButton.click();
+});
+
+// Show which of the two internal tabs is selected.
+groupExpensesTab.addEventListener('click', function () {
+    groupExpensesTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
+    groupExpensesTab.classList.remove('text-slate-500');
+    groupMembersTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
+    groupMembersTab.classList.add('text-slate-500');
+});
+
+groupMembersTab.addEventListener('click', function () {
+    groupMembersTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
+    groupMembersTab.classList.remove('text-slate-500');
+    groupExpensesTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
+    groupExpensesTab.classList.add('text-slate-500');
+});
+
 // Reset the modal so Create Group does not stay in Edit mode.
 function resetGroupFormMode() {
     editingGroupId = null;
