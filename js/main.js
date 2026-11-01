@@ -1,5 +1,4 @@
-// Beginner-friendly SPA navigation.
-// Each button shows one section and hides the other three.
+
 
 const dashboardButton = document.getElementById('btn-Dashboard');
 const myGroupsButton = document.getElementById('btn-Mygroups');
@@ -10,6 +9,13 @@ const dashboardPage = document.getElementById('dashboard');
 const myGroupsPage = document.getElementById('my-groups');
 const expensesPage = document.getElementById('all-expenses');
 const balancesPage = document.getElementById('Balances');
+
+const recentExpensesSection =document.getElementById('recent-expenses')
+
+
+
+const btnAddexpenses =document.getElementById('btn-addexpenses');
+const AddExpensesForm=document.getElementById('Add-expenses');
 
 // Dashboard button.
 showHiddenElement(dashboardButton, dashboardPage);
@@ -35,6 +41,14 @@ hideTheElement(balancesButton, myGroupsPage);
 hideTheElement(balancesButton, expensesPage);
 showHiddenElement(balancesButton, balancesPage);
 
+showHiddenElement(btnAddexpenses, AddExpensesForm);
+hideTheElement(btnAddexpenses,recentExpensesSection );
+
+showHiddenElement(expensesButton,recentExpensesSection)
+hideTheElement(expensesButton,AddExpensesForm );
+
+
+
 // Highlight the active sidebar button.
 function highlightButton(selectedButton) {
     dashboardButton.classList.remove('is-active');
@@ -52,6 +66,7 @@ myGroupsButton.addEventListener('click', function () {
 });
 expensesButton.addEventListener('click', function () {
     highlightButton(expensesButton);
+    showAllExpenses();
 });
 balancesButton.addEventListener('click', function () {
     highlightButton(balancesButton);

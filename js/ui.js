@@ -1,4 +1,6 @@
-const deleteGroupButton = document.getElementById('delete-button')
+const deleteGroupButton = document.getElementById('delete-button');
+
+
 
 function showHiddenElement(button, hiddenElement) {
     button.addEventListener('click', () => {
@@ -22,6 +24,8 @@ function emptyAndClose(button, element) {
     })
 
 };
+let selectedGroupId = null;
+
 function showGroups(groupes) {
     groupsCounter.textContent = groupes.length
     groupsContainer.innerHTML = ""
@@ -100,8 +104,44 @@ function showGroups(groupes) {
                                                 <i class="ri-arrow-right-s-line text-lg"></i>
                                             </button>`
 
-        groupsContainer.appendChild(groupCarte)
-    })
+        groupsContainer.appendChild(groupCarte);
+
+        const openGroupButton = groupCarte.querySelector('.open-group-button');
+        openGroupButton.addEventListener('click', function () {
+            const groupId = Number(openGroupButton.dataset.id);
+            selectedGroupId = groupId;
+            const selectedGroup = groupes.find(function (group) {
+                return group.id === groupId;
+            });
+
+            if (!selectedGroup) {
+                return;
+            }
+
+            const groupMembers = getGroupMembers(groupId);
+
+            console.log('Selected group:', selectedGroup);
+            console.log('Group members:', groupMembers);
+
+            showGroupExpenses(selectedGroupId);
+
+            document.getElementById('btn-Mygroups').click();
+            document.getElementById('tab-expenses').click();
+
+            document.getElementById('details-group-name').textContent = selectedGroup.groupeName;
+            document.getElementById('details-group-description').textContent = selectedGroup.groupeDescription;
+            document.getElementById('details-group-avatar').textContent = selectedGroup.avatar;
+            document.getElementById('details-group-currency').textContent = selectedGroup.groupeCurrency;
+            document.getElementById('details-group-status').textContent = selectedGroup.cloture ? 'Closed' : 'Active';
+
+            document.getElementById('group-details').classList.remove('hidden');
+            document.getElementById('groups-page-header').classList.add('hidden');
+            document.getElementById('groups-page-filters').classList.add('hidden');
+            document.getElementById('groups-page-list').classList.add('hidden');
+
+        });
+    });
+
     let shownGroups = 0;
     for (let i = groupes.length - 1; i >= 0; i--) {
         if (shownGroups === 3) break;
@@ -111,7 +151,7 @@ function showGroups(groupes) {
 
         const dashboardCard = document.createElement('div');
 
-   dashboardCard.className = "flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm md:w-[calc(50%_-_8px)] xl:w-[calc(33.333%_-_11px)]";
+        dashboardCard.className = "flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm md:w-[calc(50%_-_8px)] xl:w-[calc(33.333%_-_11px)]";
         dashboardCard.dataset.id = group.id;
         dashboardCard.innerHTML = `
                                                                 <div class="flex items-start justify-between">
@@ -165,30 +205,11 @@ function showGroups(groupes) {
         dashboardGroupsContainer.appendChild(dashboardCard);
         shownGroups++;
     }
+}
 
 
-    const openButtons = document.querySelectorAll('.open-group-button');
-    openButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            document.getElementById('btn-Mygroups').click();
-            document.getElementById('tab-expenses').click();
-            const selectedGroup = groupes.find(function (group) {
-                return group.id === Number(button.dataset.id);
-            });
-            if (selectedGroup) {
-                document.getElementById('details-group-name').textContent = selectedGroup.groupeName;
-                document.getElementById('details-group-description').textContent = selectedGroup.groupeDescription;
-                document.getElementById('details-group-avatar').textContent = selectedGroup.avatar;
-                document.getElementById('details-group-currency').textContent = selectedGroup.groupeCurrency;
-                document.getElementById('details-group-status').textContent = selectedGroup.cloture ? 'Closed' : 'Active';
-            }
-        });
-        showHiddenElement(button, document.getElementById('group-details'));
-        hideTheElement(button, document.getElementById('groups-page-header'));
-        hideTheElement(button, document.getElementById('groups-page-filters'));
-        hideTheElement(button, document.getElementById('groups-page-list'));
-    });
-};
+
+
 
 
 
@@ -241,3 +262,139 @@ deleteGroupButton.addEventListener('click', function () {
     createGroupForm.reset();
     editingGroupId = null;
 });
+
+
+const addGroupExpenseButton = document.getElementById('add-group-expense-btn');
+
+
+
+
+function openExpenseForm(groupId) {
+
+    selectedGroupId = groupId;
+
+    const groupMembers = getGroupMembers(groupId);
+
+    showPaidByMembers(groupMembers);
+    showExpenseParticipants(groupMembers);
+
+    expensesButton.click();
+
+    document.getElementById('recent-expenses').classList.add('hidden');
+    document.getElementById('Add-expenses').classList.remove('hidden');
+}
+
+// Add new expense
+addGroupExpenseButton.addEventListener('click', function () {
+
+    if (selectedGroupId === null) {
+        return;
+    }
+
+    editingExpenseId = null;
+
+    openExpenseForm(selectedGroupId);
+
+    document.getElementById('Expenses-title-input').value = '';
+    document.getElementById('expense-amount').value = '';
+    document.getElementById('expense-date').value = '';
+    document.getElementById('expense-category').selectedIndex = 0;
+});
+
+// Open the form from the Edit button
+document.addEventListener('splitmate:open-expense-form', function (event) {
+    openExpenseForm(event.detail.groupId);
+});
+
+
+
+
+function showPaidByMembers(members) {
+    const paidBySelect = document.getElementById('expense-paid-by');
+
+    paidBySelect.innerHTML = '';
+
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Select a member';
+    paidBySelect.appendChild(defaultOption);
+
+    members.forEach(function (member) {
+        const option = document.createElement('option');
+
+        option.value = member.id;
+        option.textContent = member.nom;
+
+        paidBySelect.appendChild(option);
+    });
+}
+
+function showExpenseParticipants(members) {
+    const participantsContainer = document.getElementById('expense-participants');
+
+    participantsContainer.innerHTML = '';
+
+    members.forEach(function (member) {
+        const label = document.createElement('label');
+        label.className = 'flex items-center gap-3 border-array padding-chart cursor-pointer';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = member.id;
+        checkbox.checked = true;
+
+        const name = document.createElement('span');
+        name.textContent = member.nom;
+
+        label.appendChild(checkbox);
+        label.appendChild(name);
+
+        participantsContainer.appendChild(label);
+    });
+}
+
+
+function showGroupExpenses(groupId) {
+
+    const container = document.getElementById('group-expenses-container');
+
+    const groupExpenses = Depenses.filter(function (expense) {
+        return expense.groupId === groupId;
+    });
+
+    container.innerHTML = '';
+
+    groupExpenses.forEach(function (expense) {
+
+        const card = document.createElement('div');
+        card.className = 'flex flex-wrap items-center gap-4 p-5 border-b border-slate-100';
+
+        const information = document.createElement('div');
+        information.className = 'flex-1';
+
+        const title = document.createElement('h3');
+        title.className = 'text-sm font-semibold text-slate-800';
+        title.textContent = expense.title;
+
+        const date = document.createElement('p');
+        date.className = 'text-xs text-slate-400 mt-1';
+        date.textContent = expense.date;
+
+        const category = document.createElement('span');
+        category.className = 'bg-indigo-100 text-indigo-600 rounded-full px-3 py-1 text-xs';
+        category.textContent = expense.category;
+
+        const amount = document.createElement('p');
+        amount.className = 'text-sm font-semibold text-slate-800';
+        amount.textContent = expense.amount.toFixed(2) + ' MAD';
+
+        information.appendChild(title);
+        information.appendChild(date);
+
+        card.appendChild(information);
+        card.appendChild(category);
+        card.appendChild(amount);
+
+        container.appendChild(card);
+    });
+}
