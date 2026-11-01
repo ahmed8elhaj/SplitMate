@@ -1,4 +1,5 @@
 const deleteGroupButton = document.getElementById('delete-button')
+
 function showHiddenElement(button, hiddenElement) {
     button.addEventListener('click', () => {
         hiddenElement.classList.remove("hidden");
@@ -24,6 +25,8 @@ function emptyAndClose(button, element) {
 function showGroups(groupes) {
     groupsCounter.textContent = groupes.length
     groupsContainer.innerHTML = ""
+    const dashboardGroupsContainer = document.getElementById("dashboard-groups-container");
+    dashboardGroupsContainer.innerHTML = "";
 
     if (groupes.length <= 0) {
         emptyGroupsMessage.classList.remove("hidden");
@@ -93,18 +96,39 @@ function showGroups(groupes) {
                                                    ${element.groupeCurrency}
                                                 </span>
                                             </div>
-                                            <button
-                                                class="mt-auto flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-50 py-3 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
+                                            <button data-id="${element.id}"
+                                                class="open-group-button mt-auto flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-50 py-3 text-xs font-medium text-indigo-600 transition hover:bg-indigo-100">
                                                 Open group
                                                 <i class="ri-arrow-right-s-line text-lg"></i>
                                             </button>`
+
         groupsContainer.appendChild(groupCarte)
     })
 };
 const titleFormGroup = document.getElementById('form-title');
 const formTitleDescription = document.getElementById('form-title-description');
 // const formTitleDescription=document.getElementById('form-title-description');
+    let shownGroups = 0;
+    for (let i = groupes.length - 1; i >= 0; i--) {
+        if (shownGroups === 3) break;
+        const group = groupes[i];
+        let status = 'Active';
+        if (group.cloture === true) status = 'Closed';
 
+        const dashboardCard = document.createElement('div');
+
+   dashboardCard.className = "flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm md:w-[calc(50%_-_8px)] xl:w-[calc(33.333%_-_11px)]";
+        dashboardCard.dataset.id = group.id;
+        dashboardCard.innerHTML = `
+                                                                <div class="flex items-start justify-between">
+                                                                    <div class="flex h-10 w-10 items-center justify-center rounded-xl ${group.color} text-xs font-semibold">
+                                                                        ${group.avatar}
+                                                                    </div>
+
+                                                                    <p class="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                                                                        ${status}
+                                                                    </p>
+                                                                </div>
 
 let editingGroupId = null;
 function handleGroupOptions(container, groupes) {
@@ -117,7 +141,15 @@ function handleGroupOptions(container, groupes) {
         );
         if (!selectedGroup) return;
         editingGroupId = selectedGroup.id;
+                                                                <div>
+                                                                    <h5 class="text-base font-medium text-slate-800">
+                                                                        ${group.groupeName}
+                                                                    </h5>
 
+                                                                    <p class="mt-1 text-xs text-slate-500">
+                                                                        ${group.groupeDescription}
+                                                                    </p>
+                                                                </div>
 
         console.log(selectedGroup);
         groupFormContenair.classList.remove("hidden");
@@ -142,6 +174,61 @@ deleteGroupButton.addEventListener('click', () => {
     createGroupForm.reset();
     editingGroupId = null;
 });
+                                                                <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                                                                    <p class="flex items-center gap-1">
+                                                                        <i class="ri-user-add-line text-base"></i>
+                                                                        4 members
+                                                                    </p>
+
+                                                                    <p class="flex items-center gap-1">
+                                                                        <i class="ri-calendar-line text-base"></i>
+                                                                        ${group.groupeDate}
+                                                                    </p>
+                                                                </div>
+
+                                                                <div class="flex items-center justify-between border-t border-slate-200 pt-4">
+                                                                    <div>
+                                                                        <p class="text-xs text-slate-400">
+                                                                            Total expenses
+                                                                        </p>
+
+                                                                        <h5 class="mt-1 text-sm font-semibold text-slate-800">
+                                                                            3,460.00 ${group.groupeCurrency}
+                                                                        </h5>
+                                                                    </div>
+
+                                                                    <span class="rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-500">
+                                                                        ${group.groupeCurrency}
+                                                                    </span>
+                                                                </div>
+                                                            `;
+        dashboardGroupsContainer.appendChild(dashboardCard);
+        shownGroups++;
+    }
+
+
+    const openButtons = document.querySelectorAll('.open-group-button');
+    openButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            document.getElementById('btn-Mygroups').click();
+            document.getElementById('tab-expenses').click();
+            const selectedGroup = groupes.find(function (group) {
+                return group.id === Number(button.dataset.id);
+            });
+            if (selectedGroup) {
+                document.getElementById('details-group-name').textContent = selectedGroup.groupeName;
+                document.getElementById('details-group-description').textContent = selectedGroup.groupeDescription;
+                document.getElementById('details-group-avatar').textContent = selectedGroup.avatar;
+                document.getElementById('details-group-currency').textContent = selectedGroup.groupeCurrency;
+                document.getElementById('details-group-status').textContent = selectedGroup.cloture ? 'Closed' : 'Active';
+            }
+        });
+        showHiddenElement(button, document.getElementById('group-details'));
+        hideTheElement(button, document.getElementById('groups-page-header'));
+        hideTheElement(button, document.getElementById('groups-page-filters'));
+        hideTheElement(button, document.getElementById('groups-page-list'));
+    });
+};
 
 
 
@@ -149,3 +236,48 @@ deleteGroupButton.addEventListener('click', () => {
 
 
 
+
+const titleFormGroup = document.getElementById('form-title');
+const formTitleDescription = document.getElementById('form-title-description');
+let editingGroupId = null;
+function handleGroupOptions(container, groupes) {
+    container.addEventListener('click', event => {
+        const button = event.target.closest('.group-options');
+        if (!button) return;
+        const id = Number(button.dataset.id.replace('button-edit-', ''));
+        const selectedGroup = groupes.find(
+            group => group.id === id
+        );
+        if (!selectedGroup) return;
+        editingGroupId = selectedGroup.id;
+        console.log(selectedGroup);
+        groupFormContenair.classList.remove("hidden");
+        deleteGroupButton.classList.remove("hidden");
+        groupeNameInpute.value = selectedGroup.groupeName;
+        groupeDescriptionInpute.value = selectedGroup.groupeDescription;
+        groupeCurrencyInpute.value = selectedGroup.groupeCurrency;
+        groupeDateInpute.value = selectedGroup.groupeDate;
+        submitButton.innerHTML = '<i class="ri-check-line text-lg"></i> Save changes';
+        titleFormGroup.textContent = 'Edit group';
+        formTitleDescription.textContent = 'Update the group details.';
+    });
+}
+deleteGroupButton.addEventListener('click', function () {
+    if (editingGroupId === null) {
+        return;
+    }
+    const confirmation = confirm("Are you sure you want to delete this group?");
+    if (confirmation === false) {
+        return;
+    }
+    const index = Groupe.findIndex(function (group) {
+        return group.id === editingGroupId;
+    });
+    if (index !== -1) {
+        Groupe.splice(index, 1);
+        showGroups(Groupe);
+    }
+    groupFormContenair.classList.add("hidden");
+    createGroupForm.reset();
+    editingGroupId = null;
+});

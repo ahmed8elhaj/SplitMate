@@ -1,11 +1,1146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <title>SplitMate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    
+    <header id="aside" class="header-size space20px ">
+        <span class="logo">
+            <i class="fa-solid fa-people-carry-box logo-icon "></i>
+            <strong>Splite Mate</strong>
+        </span>
+
+        <nav class="flex-column nav-center">
+            <span class="nav-p">
+                <p class="grey">Workspace</p>
+            </span>
+            <button id="btn-Dashboard" class="btn-aside gap10px"> <i class="fa-solid fa-table-cells-large"></i>
+                Dashboard</button>
+            <button id="btn-Mygroups" class="btn-aside gap10px"> <i class="fa-solid fa-users"></i> My Groups</button>
+            <button id="btn-ALLexpenses" class="btn-aside gap10px"><i class="fa-solid fa-ticket"></i> All
+                Expenses</button>
+            <button id="btn-Ballances" class="btn-aside gap10px"> <i class="fa-solid fa-wallet"></i> Balances </button>
+        </nav>
+    </header>
+    <section id="dashboard">
+        <div class="top-header space-between border-buttom">
+            <div>
+                <p class="grey">SplitMate /</p>
+                <h1>Dashboard</h1>
+            </div>
+            <button id="btn-addGroup">
+                <i class="fa-solid fa-plus"></i>
+                Add group
+            </button>
+        </div>
+        <section id="welcome" class="padding-chart">
+            <strong class="krishna">MONDAY, 26 MAY</strong>
+            <div class="space-between padding-chart">
+                <h2>Good morning, Amine</h2>
+                <button class="background-white btn-mounth grey">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    This month
+                </button>
+            </div>
+            <p class="grey">Here’s what’s happening across your shared expenses.</p>
+        </section>
+
+        <section id="hero">
+
+            <div class="space-evenly padding-chart">
+
+                <div class="space10px">
+
+                    <div class="padding-chart gap20px statistic-card">
+                        <div><i class="fa-solid fa-users background-grey purple"></i></div>
+                        <div class="space10px">
+                            <p class="grey">Total groups</p>
+                            <strong>3</strong>
+                            <p class="grey">2 active</p>
+                        </div>
+                    </div>
+
+                    <div class="padding-chart gap20px statistic-card back">
+                        <div><i class="fa-solid fa-user-plus background-grey blue"></i></div>
+                        <div class="space10px">
+                            <p class="grey">Total members</p>
+                            <strong>12</strong>
+                            <p class="grey">Across all groups</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space10px">
+                    <div class="padding-chart gap20px statistic-card">
+                        <div><i class="fa-solid fa-file-invoice-dollar background-grey green"></i></div>
+                        <div class="space10px">
+                            <p class="grey">Total expenses</p>
+                            <strong>17,528.50 MAD</strong>
+                            <p class="grey">+12.4% this month</p>
+                        </div>
+                    </div>
+                    <div class="padding-chart gap20px statistic-card">
+                        <div><i class="fa-solid fa-wallet background-grey "></i></div>
+                        <div class="space10px">
+                            <p class="grey">You are owed</p>
+                            <strong>250.00 MAD</strong>
+                            <p class="grey">2 pending repayments</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="recent-expenses">
+
+            <div class="space-between padding-chart border-array">
+                <div class="padding-chart">
+                    <div class="space10px">
+                        <strong>Recent expenses</strong>
+                        <p class="grey">Your latest shared activity</p>
+                    </div>
+                </div>
+                <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey blue"></i>
+                        <strong>Riad accommodation</strong>
+                    </span>
+                    <p>Weekend Marrakech · 24 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="blue">stay</p>
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>1,850.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey green"></i>
+                        <strong>Grocery shopping</strong>
+                    </span>
+                    <p>Apartment Expenses · 22 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="green">Groceries</p>
+                    <div class="gap ">
+                        <div class="space5px">
+                            <p>624.50 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis "></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey purple"></i>
+                        <strong>Fuel to Essaouira</strong>
+                    </span>
+                    <p>Summer Road Trip · 19 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="purple">Transport</p>
+
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>480.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey"></i>
+                        <strong>Dinner at Nomad</strong>
+                    </span>
+                    <p>Weekend Marrakech · 18 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p>Dining</p>
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>760.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="charts" class="border-array ">
+            <div class="padding-chart border-buttom space10px">
+                <strong>Spending by category</strong>
+                <p class="grey">May 2025</p>
+            </div>
+            <div class="padding-chart border-buttom">
+                <div class="space-between padding-chart">
+                    <p>Stay</p>
+                    <p>3,850 MAD</p>
+                </div>
+                <div class="background-chart">
+                    <div class="stay-chart"></div>
+                </div>
+            </div>
+            <div class="padding-chart border-buttom">
+                <div class="space-between padding-chart border">
+                    <p>Dining</p>
+                    <p>2,460 MAD</p>
+                </div>
+                <div class="background-chart">
+                    <div class="dining-chart"></div>
+                </div>
+            </div>
+            <div class="padding-chart border-buttom">
+                <div class="space-between padding-chart">
+                    <p>Transport</p>
+                    <p>1,640 MAD</p>
+                </div>
+                <div class="background-chart">
+                    <div class="transport-chart"></div>
+                </div>
+            </div>
+            <div class="padding-chart">
+                <div class="space-between padding-chart">
+                    <p>Groceries</p>
+                    <p>1,224 MAD</p>
+                </div>
+                <div class="background-chart">
+                    <div class="groceries-chart"></div>
+                </div>
+            </div>
+        </section>
+        <section id="groups">
+
+            <div class="space10px">
+                <div class="padding-chart"><strong class="mygroups-size">My groups</strong></div>
+                <div class="space-between padding-chart">
+                    <p class="grey">Your most active shared spaces</p>
+                    <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+                </div>
+            </div>
+            <div id="dashboard-groups-container" class="flex flex-wrap gap-4">
+            </div>
+
+        </section>
+    </section>
+
+    <section id="my-groups" class="hidden min-w-0 max-w-full">
+        <header id="groups-page-header"
+            class=" flex items-center justify-between border-b border-gray-200 bg-white px-9 py-5 ">
+            <div class="flex flex-col gap-1">
+                <p class="text-xs text-gray-400">
+                    SplitMate /
+                </p>
+                <h1 class="text-lg font-medium text-slate-800">
+                    My Groups
+                </h1>
+            </div>
+            <button id="create-group"
+                class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700">
+                <span class="text-xl leading-none">+</span>Create group</button>
+        </header>
+        <div id="groups-page-filters" class="px-9 py-7 bg-gray-50">
+            <div>
+                <h1 class="text-2xl font-medium text-slate-800">
+                    My Groups
+                </h1>
+                <p class="mt-2 text-sm text-slate-500">
+                    Organize expenses with the people you share life with.
+                </p>
+            </div>
+            <div
+                class="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-3">
+                <div class="flex w-full min-w-0 flex-wrap items-center gap-3 lg:w-auto">
+                    <div
+                        class="flex w-full min-w-0 items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 md:w-80">
+                        <i class="ri-search-2-line shrink-0 text-slate-400"></i>
+                        <input type="search" placeholder="Search groups..."
+                            class="w-full min-w-0 bg-transparent text-sm outline-none placeholder:text-slate-400">
+                    </div>
+                    <div class="flex max-w-full items-center rounded-lg bg-slate-100 p-1">
+                        <button class="rounded-md bg-white px-4 py-2 text-xs font-medium text-slate-700 shadow-sm">
+                            All</button>
+                        <button class="rounded-md px-4 py-2 text-xs text-slate-500"> Active</button>
+                        <button class="rounded-md px-4 py-2 text-xs text-slate-500">Closed</button>
+                    </div>
+
+                </div>
+                <div>
+                    <select
+                        class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 outline-none">
+                        <option>Recently Added</option>
+                        <option>Oldest</option>
+                        <option>A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <section id="groups-page-list" class="px-4 py-6 sm:px-9 bg-gray-50">
+            <div class="mb-3 flex items-center justify-between">
+                <p class="text-xs text-slate-400" id="groups-counter"></p>
+                <p id="empty-message" class="text-slate-500 hidden">
+                    No tasks yet. Add one above.
+                </p>
+                <p class="text-xs text-slate-400">Updated just now</p>
+            </div>
+            <div id="groups-container" class="flex flex-wrap gap-4">
+            </div>
+        </section>
+        <div id="group-form-contenaire"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 hidden">
+            <section class="w-full max-w-[520px] overflow-hidden rounded-2xl bg-white shadow-2xl ">
+                <div class="flex items-start justify-between border-b border-gray-200 px-6 py-5">
+                    <div>
+                        <h5 id="form-title" class="text-lg font-medium text-slate-800">
+                            Create new group
+                        </h5>
+                        <small id="form-title-description" class="mt-1 block text-xs text-slate-500">
+                            Create a space to track expenses together.
+                        </small>
+                    </div>
+                    <button type="button" id="close-groupe-form"
+                        class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200">
+                        <i class="ri-close-line text-xl"></i>
+                    </button>
+                </div>
+                <form id="create-group-form" class="flex flex-col">
+                    <div class="flex flex-col gap-4 px-6 py-5">
+                        <div class="flex flex-col gap-2">
+                            <label for="group-name" class="text-xs font-medium text-slate-700">
+                                Group name <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="group-name" name="nom" placeholder="e.g. Weekend Marrakech"
+                                class="w-full rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500">
+                            <small id="name-error" class="text-xs text-red-400"></small>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="group-description" class="text-xs font-medium text-slate-700">
+                                Description
+                            </label>
+                            <textarea id="group-description" name="description" rows="3"
+                                placeholder="What is this group for?"
+                                class="w-full resize-y rounded-lg border border-slate-200 px-3 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-indigo-500"></textarea>
+                            <small id="description-error" class="text-xs text-slate-400">
+                                Keep it short and helpful.
+                            </small>
+                        </div>
+                        <div class="flex flex-col gap-4 sm:flex-row">
+                            <div class="flex min-w-0 flex-1 flex-col gap-2">
+                                <label for="group-currency" class="text-xs font-medium text-slate-700">
+                                    Currency <span class="text-red-500">*</span>
+                                </label>
+                                <select id="group-currency" name="devise"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
+                                    <option value="MAD">MAD — Moroccan Dirham</option>
+                                    <option value="EUR">EUR — Euro</option>
+                                    <option value="USD">USD — US Dollar</option>
+                                </select>
+                                <small id="currency-error" class="text-xs text-slate-400">
+                                    Choose the currency
+                                </small>
+                            </div>
+                            <div class="flex min-w-0 flex-1 flex-col gap-2">
+                                <label for="group-date" class="text-xs font-medium text-slate-700">
+                                    Start date <span class="text-red-500">*</span>
+                                </label>
+                                <input type="date" id="group-date" name="dateDebut"
+                                    class="w-full min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-indigo-500">
+                                <small id="date-error" class="text-xs text-red-400"></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end gap-3 border-t border-slate-200 px-6 py-5">
+                        <button type="button" id="delete-button"
+                            class="hidden rounded-lg bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700">
+                            <i class="ri-delete-bin-line"></i> Delete group
+                        </button>
+                        <button type="button" id="cancel"
+                            class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                            Cancel
+                        </button>
+                        <button type="submit" id="submit-button"
+                            class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-medium text-white shadow-md hover:bg-indigo-700">
+                            <i class="ri-check-line text-lg"></i>
+                            Create group
+                        </button>
+
+                    </div>
+                </form>
+            </section>
+        </div>
+
+
+        <section id="group-details"
+            class="hidden w-full min-w-0 max-w-full box-border p-4 md:p-7 bg-slate-50 min-h-screen">
+
+
+            <div class="w-full min-w-0 bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm mb-6">
+
+                <div class="flex flex-col md:flex-row md:items-center gap-5">
+
+
+                    <div id="details-group-avatar"
+                        class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-bold">
+                        WM
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+
+                        <div class="flex gap-2 mb-2">
+                            <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">
+                                Active
+                            </span>
+
+                            <span id="details-group-currency"
+                                class="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-full">
+                                MAD
+                            </span>
+                        </div>
+
+                        <h1 class="text-xl font-semibold text-slate-800">
+                            Weekend Marrakech
+                        </h1>
+
+                        <p class="text-sm text-slate-500 mt-1">
+                            A long weekend exploring the red city together.
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-5 mt-3 text-xs text-slate-500">
+                            <span>♙ 4 members</span>
+                            <span>▢ 18–25 May 2025</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="md:border-l md:pl-6 border-slate-200">
+
+                        <p class="text-xs text-slate-400">
+                            Total expenses
+                        </p>
+
+                        <h2 class="text-xl font-bold text-slate-800 mt-1">
+                            3,460.00 MAD
+                        </h2>
+
+                        <p class="text-xs text-green-600 mt-2">
+                            You are owed 250 MAD
+                        </p>
+
+                    </div>
+
+
+                    <button id="edit-group-details-btn"
+                        class="border border-slate-300 rounded-lg px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                        Edit group
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="flex max-w-full gap-6 border-b border-slate-200 mb-5 overflow-x-auto">
+
+                <button id="tab-expenses"
+                    class="border-b-2 border-indigo-600 text-indigo-600 px-3 py-3 text-sm font-medium whitespace-nowrap">
+                    Expenses
+                </button>
+
+                <button id="tab-members" class="text-slate-500 px-3 py-3 text-sm whitespace-nowrap">
+                    Members
+                    <span class="bg-indigo-100 text-indigo-600 rounded-full px-2 text-xs">
+                        4
+                    </span>
+                </button>
+
+                <button id="tab-balances" class="text-slate-500 px-3 py-3 text-sm whitespace-nowrap">
+                    Balances
+                </button>
+
+            </div>
+
+
+            <div id="group-expenses-section"
+                class="w-full min-w-0 bg-white border border-slate-200 rounded-xl overflow-hidden">
+
+
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 border-b border-slate-200">
+
+                    <div>
+                        <h2 class="text-base font-semibold text-slate-800">
+                            Group expenses
+                        </h2>
+
+                        <p class="text-xs text-slate-400 mt-1">
+                            5 expenses · 3,460.00 MAD total
+                        </p>
+                    </div>
+
+                    <button id="add-group-expense-btn"
+                        class="bg-indigo-600 text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-indigo-700">
+                        + Add expense
+                    </button>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-3 p-5 border-b border-slate-200">
+
+                    <input id="group-expense-search" type="text" placeholder="Search expenses..."
+                        class="border border-slate-300 rounded-lg px-4 py-3 text-sm w-full sm:w-72 outline-none focus:border-indigo-500">
+
+                    <select id="group-expense-category"
+                        class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                        <option>All categories</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Stay</option>
+                        <option>Shopping</option>
+                        <option>Other</option>
+                    </select>
+
+                    <select id="group-expense-payer"
+                        class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                        <option>All payers</option>
+                        <option>Ahmed</option>
+                        <option>Sara</option>
+                        <option>Karim</option>
+                    </select>
+
+                    <select id="group-expense-sort"
+                        class="border border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-600 bg-white">
+                        <option>Newest first</option>
+                        <option>Oldest first</option>
+                        <option>Highest amount</option>
+                        <option>Lowest amount</option>
+                    </select>
+
+                </div>
+
+
+                <div id="group-expenses-container">
+
+
+                    <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+                        <div
+                            class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center">
+                            ▤
+                        </div>
+
+                        <div class="flex-1">
+                            <h3 class="text-sm font-semibold text-slate-800">
+                                Riad accommodation
+                            </h3>
+
+                            <p class="text-xs text-slate-400 mt-1">
+                                Weekend Marrakech · 24 May 2025
+                            </p>
+                        </div>
+
+                        <span class="bg-purple-100 text-purple-600 rounded-full px-3 py-1 text-xs">
+                            Stay
+                        </span>
+
+                        <div class="text-sm">
+                            <p class="text-xs text-slate-400">Paid by</p>
+                            <p class="font-medium text-slate-800">Ahmed</p>
+                        </div>
+
+                        <div class="text-right">
+                            <p class="text-sm font-semibold text-slate-800">
+                                1,850.00 MAD
+                            </p>
+                            <p class="text-xs text-slate-400 mt-1">
+                                Split equally
+                            </p>
+                        </div>
+
+                        <button class="text-slate-400 px-2 text-xl">
+                            ⋯
+                        </button>
+
+                    </div>
+
+
+                    <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+                        <div
+                            class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center">
+                            ◈
+                        </div>
+
+                        <div class="flex-1">
+                            <h3 class="text-sm font-semibold text-slate-800">
+                                Dinner at restaurant
+                            </h3>
+
+                            <p class="text-xs text-slate-400 mt-1">
+                                Weekend Marrakech · 23 May 2025
+                            </p>
+                        </div>
+
+                        <span class="bg-orange-100 text-orange-600 rounded-full px-3 py-1 text-xs">
+                            Food
+                        </span>
+
+                        <div class="text-sm">
+                            <p class="text-xs text-slate-400">Paid by</p>
+                            <p class="font-medium text-slate-800">Sara</p>
+                        </div>
+
+                        <div class="text-right">
+                            <p class="text-sm font-semibold text-slate-800">
+                                620.00 MAD
+                            </p>
+                            <p class="text-xs text-slate-400 mt-1">
+                                Split equally
+                            </p>
+                        </div>
+
+                        <button class="text-slate-400 px-2 text-xl">
+                            ⋯
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="group-members-section"
+                class="hidden w-full min-w-0 bg-white border border-slate-200 rounded-xl overflow-hidden">
+
+
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 border-b border-slate-200">
+
+                    <div>
+                        <h2 class="text-base font-semibold text-slate-800">
+                            Group members
+                        </h2>
+
+                        <p class="text-xs text-slate-400 mt-1">
+                            People included in this group's expenses
+                        </p>
+                    </div>
+
+                    <button id="add-member-btn"
+                        class="bg-indigo-600 text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-indigo-700">
+                        + Add member
+                    </button>
+
+                </div>
+
+
+                <div id="members-container">
+
+
+                    <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+
+                        <div
+                            class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-sm font-semibold">
+                            AB
+                        </div>
+
+
+                        <div class="flex-1">
+                            <h3 class="text-sm font-semibold text-slate-800">
+                                Ahmed Benali
+                            </h3>
+
+                            <p class="text-xs text-slate-400 mt-1">
+                                @ahmed
+                            </p>
+                        </div>
+
+
+                        <div class="w-32">
+                            <p class="text-xs text-slate-400">
+                                Total paid
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-800">
+                                2,610.00 MAD
+                            </p>
+                        </div>
+
+
+                        <div class="w-32">
+                            <p class="text-xs text-slate-400">
+                                Balance
+                            </p>
+
+                            <p class="text-sm font-semibold text-green-600">
+                                +250.00 MAD
+                            </p>
+                        </div>
+
+
+                        <button class="text-slate-400 text-xl px-2 hover:text-slate-700">
+                            ⋯
+                        </button>
+
+                    </div>
+
+
+                    <div class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100">
+
+
+                        <div
+                            class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-sm font-semibold">
+                            SI
+                        </div>
+
+
+                        <div class="flex-1">
+                            <h3 class="text-sm font-semibold text-slate-800">
+                                Sara Idrissi
+                            </h3>
+
+                            <p class="text-xs text-slate-400 mt-1">
+                                @sara
+                            </p>
+                        </div>
+
+
+                        <div class="w-32">
+                            <p class="text-xs text-slate-400">
+                                Total paid
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-800">
+                                420.00 MAD
+                            </p>
+                        </div>
+
+
+                        <div class="w-32">
+                            <p class="text-xs text-slate-400">
+                                Balance
+                            </p>
+
+                            <p class="text-sm font-semibold text-red-600">
+                                -50.00 MAD
+                            </p>
+                        </div>
+
+
+                        <button class="text-slate-400 text-xl px-2 hover:text-slate-700">
+                            ⋯
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <section id="all-expenses" class="hidden">
+        <div class="top-header space-between border-buttom">
+            <div>
+                <p class="grey">SplitMate /</p>
+                <h1>All Expenses</h1>
+            </div>
+            <button id="btn-addexpenses">
+                <i class="fa-solid fa-plus"></i>
+                Add expenses
+            </button>
+        </div>
+        <section class="recent-expenses">
+
+            <div class="space-between padding-chart border-array">
+                <div class="padding-chart">
+                    <div class="space10px">
+                        <strong>ALL expenses</strong>
+                        <p class="grey">Review and manage every shared purchase</p>
+                    </div>
+                </div>
+                <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+            </div>
+            <div class=" padding-chart border-array flex gap10px">
+
+                <div id="expenses-search-container" class="border-array">
+                    <i class="fa-solid fa-magnifying-glass grey"></i>
+                    <input id="expenses-search" type="text" placeholder="Search expenses...">
+                </div>
+
+                <div id="expenses-selectedCategories-container">
+                    <select id="expenses-selectedCategories" class="expenses-options">
+                        <option>All categories</option>
+                        <option>Dining</option>
+                        <option>Tronsport</option>
+                    </select>
+                </div>
+
+                <div id="expenses-payers-container">
+                    <select id="expenses-payers" class="expenses-options">
+                        <option>All payers</option>
+                        <option>Ahmed</option>
+                        <option>Sara</option>
+                    </select>
+                </div>
+                <div>
+                    <select class="expenses-options">
+                        <option>Newest first</option>
+                        <option>Highest amount</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey blue"></i>
+                        <strong>Riad accommodation</strong>
+                    </span>
+                    <p class="grey">Weekend Marrakech · 24 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="blue">stay</p>
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>1,850.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey green"></i>
+                        <strong>Grocery shopping</strong>
+                    </span>
+                    <p class="grey">Apartment Expenses · 22 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="green">Groceries</p>
+                    <div class="gap ">
+                        <div class="space5px">
+                            <p>624.50 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis "></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey purple"></i>
+                        <strong>Fuel to Essaouira</strong>
+                    </span>
+                    <p class="grey">Summer Road Trip · 19 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p class="purple">Transport</p>
+
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>480.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-between padding-chart border-array">
+                <div class="space10px">
+                    <span class="gap10px">
+                        <i class="fa-solid fa-ticket background-grey"></i>
+                        <strong>Dinner at Nomad</strong>
+                    </span>
+                    <p class="grey">Weekend Marrakech · 18 May 2025</p>
+                </div>
+                <div class="gap">
+                    <p>Dining</p>
+                    <div class="gap">
+                        <div class="space5px">
+                            <p>760.00 MAD</p>
+                            <p class="grey">Split equally</p>
+                        </div>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Add-expenses" class="padding-chart border-array">
+
+            <div class="space5px padding-chart border-buttom">
+                <strong>Add new expense</strong>
+                <p class="grey">Add the details and choose how to split it.</p>
+            </div>
+
+            <div class="space10px padding-chart">
+                <label>Expense title*</label>
+                <input id="Expenses-title-input" type="text" class="border-array" placeholder=" e.g. Dinner at Nomad">
+            </div>
+            <div class="space-evenly padding-chart">
+                <div class="space20px padding-chart">
+                    <div class="gap10px">
+                        <label>Amount*</label>
+                        <input class="border-array" type="number" placeholder="0.00                          MAD">
+                    </div>
+
+                    <div class="gap20px">
+                        <label>Date*</label>
+                        <input class="border-array" type="date">
+                    </div>
+                </div>
+
+                <div class="space20px">
+                    <div class="gap20px">
+                        <label>Category*</label>
+                        <select class="border-array">
+                            <option>Dining</option>
+                            <option>Transport</option>
+                            <option>Stay</option>
+                        </select>
+                    </div>
+
+                    <div class="gap20px">
+                        <label>Paid by*</label>
+                        <select class="border-array">
+                            <option>Ahmed hamadi</option>
+                            <option>ali</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="padding-chart space20px">
+                <p>Participants</p>
+                <div class="space-evenly padding-chart">
+                    <div class="space10px border-array padding-chart">
+                        <input type="checkbox">
+                        <p>Ahmed</p>
+                    </div>
+                    <div class="space10px border-array padding-chart">
+                        <input type="checkbox">
+                        <p>Sara</p>
+                    </div>
+                    <div class="space10px border-array padding-chart">
+                        <input type="checkbox">
+                        <p>Youssef</p>
+                    </div>
+                    <div class="space10px border-array padding-chart">
+                        <input type="checkbox">
+                        <p>Amine</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gap padding-chart">
+
+                <div class="border-array padding-chart gap20px padding-left">
+                    <div>
+                        <input type="checkbox">
+                    </div>
+                    <div class="space10px">
+                        <p>Equal Split</p>
+                        <p class="grey">Same amount for everyone</p>
+                    </div>
+                </div>
+                <div class="border-array padding-chart gap20px padding-left">
+                    <div>
+                        <input type="checkbox">
+                    </div>
+                    <div class="space10px">
+                        <p>Custom split</p>
+                        <p class="grey">set individual amounts</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-array padding-chart space10px">
+
+                <div class="border-buttom padding-chart space-between">
+                    <strong>Ahmed</strong>
+                    <input type="number" class="border-array" placeholder="                                 MAD">
+                </div>
+
+                <div class="border-buttom padding-chart space-between">
+                    <strong>Sara</strong>
+                    <input type="number" class="border-array" placeholder="                                 MAD">
+                </div>
+                <div class="border-buttom padding-chart space-between">
+                    <strong>Aziz</strong>
+                    <input type="number" class="border-array" placeholder="                                 MAD">
+                </div>
+                <div class="padding-chart space-between">
+                    <p>Assigned: 500.00 MAD</p>
+                    <p class="green">Remaining: 0.00 MAD</p>
+                </div>
+
+            </div>
+
+            <div class=" border-array space-between padding-chart">
+                <div class="gap10px">
+                    <i class="fa-solid fa-user-plus krishna"></i>
+                    <p class="krishna">3 participants selected</p>
+                </div>
+                <p class="krishna">166.67 MAD each</p>
+            </div>
+            <div class=" border-array padding-chart flex-end gap10px">
+                <button id="concel-expenses" class="background-grey ">cancel</button>
+                <button id="save-expenses" class="white"><i class="fa-solid fa-check"></i> Save Expenses</button>
+            </div>
+        </section>
+    </section>
+    <section id="Balances" class="hidden">
+
+        <header class="flex items-center justify-between border-b border-gray-200 bg-white px-9 py-5">
+            <div class="flex flex-col gap-1">
+                <p class="text-xs text-gray-400">
+                    SplitMate /
+                </p>
+                <h1 class="text-lg font-medium text-slate-800">
+                    Balances
+                </h1>
+            </div>
+        </header>
+        <div class="px-9 py-7 bg-gray-50 ">
+            <div
+                class="mt-8 flex flex-col gap-5 rounded-2xl bg-indigo-600 px-7 py-6 text-white shadow-lg sm:flex-row sm:items-center sm:justify-between sm:px-9">
+                <div class="flex flex-col gap-2">
+                    <small class="text-xs text-indigo-100">Total outstanding</small>
+                    <h1 class="text-3xl font-bold">250.00 MAD</h1>
+                    <small class="text-xs text-indigo-200">Across 2 pending reimbursements</small>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" id="minus-btn"
+                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15 text-xl font-semibold text-white transition hover:bg-white/25">-</button>
+                    <input type="number" id="amount-input" value="250" min="0" step="0.01" aria-label="Amount"
+                        class="w-24 min-w-0 rounded-lg border border-white/30 bg-white/10 px-2 py-2 text-center text-sm font-medium text-white outline-none focus:border-white">
+                    <button type="button" id="plus-btn"
+                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15 text-xl font-semibold text-white transition hover:bg-white/25">+</button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mt-4">
+                <div
+                    class="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:w-[calc(50%-8px)] xl:w-[calc(25%-12px)]">
+                    <div class="flex min-w-0 items-center gap-3">
+                        <div
+                            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                            AB</div>
+                        <div class="min-w-0">
+                            <h5 class="text-xs font-semibold text-slate-800">Ahmed</h5>
+                            <small class="text-xs text-slate-400">Credit</small>
+                        </div>
+                    </div>
+                    <div class="shrink-0">
+                        <h5 class="text-xs font-semibold text-green-600">+250.00 MAD</h5>
+                    </div>
+                </div>
+            </div>
+            <section class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <div class="border-b border-slate-200 px-5 py-5">
+                    <h2 class="text-sm font-medium text-slate-800">Suggested reimbursements </h2>
+                    <p class="mt-1 text-xs text-slate-400">The simplest way to settle everyone up</p>
+                </div>
+                <div class="flex flex-col gap-4 px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+                    <div class="flex w-full items-center justify-between gap-4 lg:max-w-[550px]">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-600">
+                                SI</div>
+                            <div>
+                                <h3 class="text-xs font-semibold text-slate-800">Sara</h3>
+                                <small class="text-xs text-slate-400">Owes</small>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-s-line text-xl text-slate-400"></i>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-xs font-semibold text-sky-700">
+                                AB</div>
+                            <div>
+                                <h3 class="text-xs font-semibold text-slate-800">Ahmed</h3>
+                                <small class="text-xs text-slate-400"> Receiver </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-4 lg:justify-end lg:gap-8">
+                        <h3 class="text-xs font-semibold text-slate-800">50.00 MAD</h3>
+                        <span
+                            class="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">Pending</span>
+                        <button type="button"
+                            class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-xs font-medium text-slate-700 transition hover:bg-slate-50">Mark
+                            as paid</button>
+                    </div>
+                </div>
+
+            </section>
+            <section class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <div class="border-b border-slate-200 px-5 py-5">
+                    <h2 class="text-sm font-medium text-slate-800"> Completed reimbursements</h2>
+                    <p class="mt-1 text-xs text-slate-400">Previously settled payments</p>
+                </div>
+                <div class="flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-100">
+                            <i class="ri-check-line text-lg text-green-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-slate-800"> Amine paid Sara</p>
+                            <small class="mt-1 block text-xs text-slate-400">12 May 2025</small>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-8 sm:justify-end">
+                        <h5 class="text-xs font-semibold text-slate-800">320.00 MAD</h5>
+                        <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">Paid</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/groupes.js"></script>
+    <script src="./js/membres.js"></script>
+    <script src="./js/depenses.js"></script>
+    <script src="./js/soldes.js"></script>
+    <script src="./js/filtres.js"></script>
+    <script src="./js/main.js"></script>
 </body>
+
 </html>
