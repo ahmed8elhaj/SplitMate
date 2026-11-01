@@ -132,20 +132,20 @@ saveExpenseButton.addEventListener('click', function () {
 showGroupExpenses(selectedGroupId);
 showAllExpenses();
 
-// Close the expense form
+
 document.getElementById('Add-expenses').classList.add('hidden');
 
-// Show the expenses page
+
 document.getElementById('recent-expenses').classList.remove('hidden');
 
-// Reset form inputs
+
 document.getElementById('Expenses-title-input').value = '';
 document.getElementById('expense-amount').value = '';
 document.getElementById('expense-date').value = '';
 document.getElementById('expense-category').selectedIndex = 0;
 document.getElementById('expense-paid-by').selectedIndex = 0;
 
-// Reset editing mode
+
 editingExpenseId = null;
 
 console.log('All expenses:', Depenses);
@@ -164,16 +164,16 @@ function createExpenseCard(expense) {
     const payer = Membres.find(function (member) {
         return member.id === expense.paidBy;
     });
-    // Main card
+
     const card = document.createElement('div');
     card.className = 'flex flex-wrap items-center gap-4 p-5 border-b border-slate-200 bg-white';
 
-    // Expense icon
+
     const icon = document.createElement('div');
     icon.className = 'w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center shrink-0';
     icon.textContent = '▤';
 
-    // Expense information
+
     const information = document.createElement('div');
     information.className = 'flex-1 min-w-40';
 
@@ -192,12 +192,12 @@ function createExpenseCard(expense) {
     information.appendChild(title);
     information.appendChild(date);
 
-    // Category
+
     const category = document.createElement('span');
     category.className = 'bg-purple-100 text-purple-600 rounded-full px-3 py-1 text-xs';
     category.textContent = expense.category;
 
-    // Amount information
+
     const amountContainer = document.createElement('div');
     amountContainer.className = 'text-right min-w-28';
 
@@ -213,7 +213,7 @@ function createExpenseCard(expense) {
     amountContainer.appendChild(split);
 
 
-    // Paid by information
+
 const paidByContainer = document.createElement('div');
 paidByContainer.className = 'flex flex-col gap-1 min-w-20';
 
@@ -280,7 +280,7 @@ editButton.addEventListener('click', function () {
 
 });
 
-    // Build card
+
 card.appendChild(icon);
 card.appendChild(information);
 card.appendChild(category);

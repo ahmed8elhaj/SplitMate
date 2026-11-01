@@ -284,7 +284,7 @@ function openExpenseForm(groupId) {
     document.getElementById('Add-expenses').classList.remove('hidden');
 }
 
-// Add new expense
+
 addGroupExpenseButton.addEventListener('click', function () {
 
     if (selectedGroupId === null) {
@@ -301,7 +301,7 @@ addGroupExpenseButton.addEventListener('click', function () {
     document.getElementById('expense-category').selectedIndex = 0;
 });
 
-// Open the form from the Edit button
+
 document.addEventListener('splitmate:open-expense-form', function (event) {
     openExpenseForm(event.detail.groupId);
 });

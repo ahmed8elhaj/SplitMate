@@ -1,4 +1,4 @@
-// Temporary members until US05 is completed
+
 let Membres = [];
 Membres = [
     {
