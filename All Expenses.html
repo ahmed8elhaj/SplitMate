@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>slipt Mate</title>
+  </head>
+
+  <body class="gap">
+
+    <div class="header-background"></div>
+
+    <header id="aside" class="header-size space20px ">
+      <span class="logo">
+        <i class="fa-solid fa-people-carry-box logo-icon "></i>
+        <strong>Splite Mate</strong>
+      </span>
+
+      <nav class="flex-column nav-center">
+        <span class="nav-p"><p class="grey">Workspace</p></span>
+        <button id="btn-Dashboard" class="btn-aside gap10px"> <i class="fa-solid fa-table-cells-large"></i> Dashboard</button>
+        <button id="btn-Mygroups" class="btn-aside gap10px"> <i class="fa-solid fa-users"></i> My Groups</button>
+        <button id="btn-ALLexpenses" class="btn-aside gap10px"><i class="fa-solid fa-ticket"></i> All Expenses</button>
+        <button id="btn-Ballances" class="btn-aside gap10px"> <i class="fa-solid fa-wallet"></i> Balances </button>
+      </nav>
+    </header>
+
+    <section id="all-expenses">
+      <div id="top-header" class="space-between border-buttom">
+        <div>
+          <p class="grey">SplitMate /</p>
+          <h1>All Expenses</h1>
+        </div>
+        <button id="btn-addGroup">
+          <i class="fa-solid fa-plus"></i>
+          Add expenses
+        </button>
+      </div>
+
+
+      <section id="Recent-expenses" class="">
+
+        <div class="space-between padding-chart border-array">
+          <div class="padding-chart">
+            <div class="space10px">
+            <strong>ALL expenses</strong>
+            <p class="grey">Review and manage every shared purchase</p>
+            </div>
+          </div>
+          <button class="btn-viewAll">View all <i class="fa-solid fa-greater-than"></i></button>
+        </div>
+
+
+
+        <div class=" padding-chart border-array flex gap10px">
+        
+          <div id="expenses-search-container" class="border-array">
+            <i class="fa-solid fa-magnifying-glass grey"></i>
+            <input id="expenses-search" type="text" placeholder="Search expenses...">
+          </div>
+
+          <div id="expenses-selectedCategories-container">
+            <select id="expenses-selectedCategories" class="expenses-options">
+              <option>All categories</option>
+              <option>Dining</option>
+              <option>Tronsport</option>
+            </select>
+          </div>
+
+            <div id="expenses-payers-container" >
+            <select id="expenses-payers" class="expenses-options">
+              <option>All payers</option>
+              <option>Ahmed</option>
+              <option>Sara</option>
+            </select>
+          </div>
+
+          
+            <div>
+            <select class="expenses-options">
+              <option>Newest first</option>
+              <option>Highest amount</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey blue"></i>
+            <strong>Riad accommodation</strong>
+            </span>
+            <p class="grey">Weekend Marrakech · 24 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="blue">stay</p>
+            <div class="gap">
+              <div class="space5px">
+              <p>1,850.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey green"></i>
+            <strong>Grocery shopping</strong>
+            </span>
+            <p class="grey">Apartment Expenses · 22 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="green">Groceries</p>
+            <div class="gap ">
+                <div class="space5px">
+              <p>624.50 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis "></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey purple"></i>
+            <strong>Fuel to Essaouira</strong>
+            </span>
+            <p class="grey">Summer Road Trip · 19 May 2025</p>
+          </div>
+          <div class="gap">
+            <p class="purple">Transport</p>
+
+            <div class="gap">
+              <div class="space5px">
+              <p>480.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="space-between padding-chart border-array">
+          <div class="space10px">
+            <span class="gap10px">
+            <i class="fa-solid fa-ticket background-grey"></i>
+            <strong>Dinner at Nomad</strong>
+            </span>
+            <p class="grey">Weekend Marrakech · 18 May 2025</p>
+          </div>
+          <div class="gap">
+            <p>Dining</p>
+            <div class="gap">
+              <div class="space5px">
+              <p>760.00 MAD</p>
+              <p class="grey">Split equally</p>
+              </div>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+
+
+
+      <section id="Add-expenses" class="padding-chart border-array">
+
+        <div class="space5px padding-chart border-buttom">
+          <strong>Add new expense</strong>
+          <p class="grey">Add the details and choose how to split it.</p>
+        </div>
+
+        <div class="space10px padding-chart">
+          <label>Expense title*</label>
+          <input id="Expenses-title-input" type="text" class="border-array" placeholder=" e.g. Dinner at Nomad">
+        </div>
+
+
+        <div class="space-evenly padding-chart">
+            <div class="space20px padding-chart">
+              <div class="gap10px">
+                <label>Amount*</label>
+                <input class="border-array" type="number" placeholder="0.00                          MAD">
+              </div>
+
+              <div class="gap20px">
+                <label>Date*</label>
+                <input class="border-array" type="date">
+              </div>
+            </div>
+            
+            <div class="space20px">
+              <div class="gap20px">
+                <label>Category*</label>
+                <select class="border-array">
+                  <option>Dining</option>
+                  <option>Transport</option>
+                  <option>Stay</option>
+                </select>
+              </div>
+
+              <div class="gap20px">
+                <label>Paid by*</label>
+                <select class="border-array">
+                  <option>Ahmed hamadi</option>
+                  <option>ali</option>
+                </select>
+              </div>
+            </div>
+        </div>
+
+        <div class="padding-chart space20px">
+          <p>Participants</p>
+          <div class="space-evenly padding-chart">
+            <div class="space10px border-array padding-chart">
+              <input type="checkbox">
+              <p>Ahmed</p>
+            </div>
+            <div class="space10px border-array padding-chart">
+              <input type="checkbox">
+              <p>Sara</p>
+            </div>
+            <div class="space10px border-array padding-chart">
+              <input type="checkbox">
+              <p>Youssef</p>
+            </div>
+            <div class="space10px border-array padding-chart">
+              <input type="checkbox">
+              <p>Amine</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gap padding-chart">
+
+            <div class="border-array padding-chart gap20px padding-left">
+              <div>
+               <input type="checkbox">
+              </div>
+              <div class="space10px">
+               <p>Equal Split</p>
+               <p class="grey">Same amount for everyone</p>
+              </div>
+            </div>
+            
+
+            <div class="border-array padding-chart gap20px padding-left">
+              <div>
+              <input type="checkbox">
+              </div>
+              <div class="space10px">
+              <p>Custom split</p>
+              <p class="grey">set individual amounts</p>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="border-array padding-chart space10px"> 
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Ahmed</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Sara</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+
+          <div class="border-buttom padding-chart space-between">
+               <strong>Aziz</strong>
+                 <input type="number" class="border-array" placeholder="                                 MAD"> 
+          </div>
+
+          
+
+        <div class="padding-chart space-between">
+          <p>Assigned: 500.00 MAD</p>
+          <p class="green">Remaining: 0.00 MAD</p>
+        </div>
+        
+      </div>
+
+        <div class=" border-array space-between padding-chart">
+          <div class="gap10px">
+          <i class="fa-solid fa-user-plus krishna"></i>
+          <p class="krishna">3 participants selected</p>
+          </div>
+          <p class="krishna">166.67 MAD each</p>
+        </div>
+
+
+        <div class=" border-array padding-chart flex-end gap10px">
+          <button id="concel-expenses" class="background-grey " >cancel</button>
+          <button id="save-expenses" class="white"><i class="fa-solid fa-check"></i> Save Expenses</button>
+        </div>
+
+
+      </section>
+
+
+   
+    </main>
+  </body>
+</html>
