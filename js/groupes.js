@@ -124,6 +124,7 @@ let Groupe = [
         color: "bg-green-50 text-green-600"
     }
 ];
+
 showGroups(Groupe)
 function checkIfEmpty() {
     let isValide = true
