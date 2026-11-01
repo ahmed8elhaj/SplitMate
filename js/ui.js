@@ -37,6 +37,8 @@ function showGroups(groupes) {
         return;
     }
     emptyGroupsMessage.classList.add("hidden");
+
+
     groupes.forEach(element => {
         let statusGroupe;
         let statusGroupeColor;
@@ -104,44 +106,12 @@ function showGroups(groupes) {
                                                 <i class="ri-arrow-right-s-line text-lg"></i>
                                             </button>`
 
-        groupsContainer.appendChild(groupCarte);
-
-        const openGroupButton = groupCarte.querySelector('.open-group-button');
-        openGroupButton.addEventListener('click', function () {
-            const groupId = Number(openGroupButton.dataset.id);
-            selectedGroupId = groupId;
-            const selectedGroup = groupes.find(function (group) {
-                return group.id === groupId;
-            });
-
-            if (!selectedGroup) {
-                return;
-            }
-
-            const groupMembers = getGroupMembers(groupId);
-
-            console.log('Selected group:', selectedGroup);
-            console.log('Group members:', groupMembers);
-
-            showGroupExpenses(selectedGroupId);
-
-            document.getElementById('btn-Mygroups').click();
-            document.getElementById('tab-expenses').click();
-
-            document.getElementById('details-group-name').textContent = selectedGroup.groupeName;
-            document.getElementById('details-group-description').textContent = selectedGroup.groupeDescription;
-            document.getElementById('details-group-avatar').textContent = selectedGroup.avatar;
-            document.getElementById('details-group-currency').textContent = selectedGroup.groupeCurrency;
-            document.getElementById('details-group-status').textContent = selectedGroup.cloture ? 'Closed' : 'Active';
-
-            document.getElementById('group-details').classList.remove('hidden');
-            document.getElementById('groups-page-header').classList.add('hidden');
-            document.getElementById('groups-page-filters').classList.add('hidden');
-            document.getElementById('groups-page-list').classList.add('hidden');
-
-        });
-    });
-
+        groupsContainer.appendChild(groupCarte)
+    })
+};
+const titleFormGroup = document.getElementById('form-title');
+const formTitleDescription = document.getElementById('form-title-description');
+// const formTitleDescription=document.getElementById('form-title-description');
     let shownGroups = 0;
     for (let i = groupes.length - 1; i >= 0; i--) {
         if (shownGroups === 3) break;
@@ -164,6 +134,17 @@ function showGroups(groupes) {
                                                                     </p>
                                                                 </div>
 
+let editingGroupId = null;
+function handleGroupOptions(container, groupes) {
+    container.addEventListener('click', event => {
+        const button = event.target.closest('.group-options');
+        if (!button) return;
+        const id = Number(button.dataset.id.replace('button-edit-', ''));
+        const selectedGroup = groupes.find(
+            group => group.id === id
+        );
+        if (!selectedGroup) return;
+        editingGroupId = selectedGroup.id;
                                                                 <div>
                                                                     <h5 class="text-base font-medium text-slate-800">
                                                                         ${group.groupeName}
@@ -174,6 +155,29 @@ function showGroups(groupes) {
                                                                     </p>
                                                                 </div>
 
+        console.log(selectedGroup);
+        groupFormContenair.classList.remove("hidden");
+        deleteGroupButton.classList.remove("hidden");
+        groupeNameInpute.value = selectedGroup.groupeName;
+        groupeDescriptionInpute.value = selectedGroup.groupeDescription;
+        groupeCurrencyInpute.value = selectedGroup.groupeCurrency;
+        groupeDateInpute.value = selectedGroup.groupeDate;
+        submitButton.innerHTML = `<i class="ri-check-line text-lg text-white">Save changes</i>`
+    });
+}
+deleteGroupButton.addEventListener('click', () => {
+    if (editingGroupId === null) return;
+    const index = Groupe.findIndex(
+        group => group.id === editingGroupId
+    );
+    if (index !== -1) {
+        Groupe.splice(index, 1);
+        showGroups(Groupe);
+    }
+    groupFormContenair.classList.add("hidden");
+    createGroupForm.reset();
+    editingGroupId = null;
+});
                                                                 <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
                                                                     <p class="flex items-center gap-1">
                                                                         <i class="ri-user-add-line text-base"></i>
