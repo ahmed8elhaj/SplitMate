@@ -33,6 +33,8 @@ function showGroups(groupes) {
         return;
     }
     emptyGroupsMessage.classList.add("hidden");
+
+
     groupes.forEach(element => {
         let statusGroupe;
         let statusGroupeColor;
@@ -102,6 +104,10 @@ function showGroups(groupes) {
 
         groupsContainer.appendChild(groupCarte)
     })
+};
+const titleFormGroup = document.getElementById('form-title');
+const formTitleDescription = document.getElementById('form-title-description');
+// const formTitleDescription=document.getElementById('form-title-description');
     let shownGroups = 0;
     for (let i = groupes.length - 1; i >= 0; i--) {
         if (shownGroups === 3) break;
@@ -124,6 +130,17 @@ function showGroups(groupes) {
                                                                     </p>
                                                                 </div>
 
+let editingGroupId = null;
+function handleGroupOptions(container, groupes) {
+    container.addEventListener('click', event => {
+        const button = event.target.closest('.group-options');
+        if (!button) return;
+        const id = Number(button.dataset.id.replace('button-edit-', ''));
+        const selectedGroup = groupes.find(
+            group => group.id === id
+        );
+        if (!selectedGroup) return;
+        editingGroupId = selectedGroup.id;
                                                                 <div>
                                                                     <h5 class="text-base font-medium text-slate-800">
                                                                         ${group.groupeName}
@@ -134,6 +151,29 @@ function showGroups(groupes) {
                                                                     </p>
                                                                 </div>
 
+        console.log(selectedGroup);
+        groupFormContenair.classList.remove("hidden");
+        deleteGroupButton.classList.remove("hidden");
+        groupeNameInpute.value = selectedGroup.groupeName;
+        groupeDescriptionInpute.value = selectedGroup.groupeDescription;
+        groupeCurrencyInpute.value = selectedGroup.groupeCurrency;
+        groupeDateInpute.value = selectedGroup.groupeDate;
+        submitButton.innerHTML = `<i class="ri-check-line text-lg text-white">Save changes</i>`
+    });
+}
+deleteGroupButton.addEventListener('click', () => {
+    if (editingGroupId === null) return;
+    const index = Groupe.findIndex(
+        group => group.id === editingGroupId
+    );
+    if (index !== -1) {
+        Groupe.splice(index, 1);
+        showGroups(Groupe);
+    }
+    groupFormContenair.classList.add("hidden");
+    createGroupForm.reset();
+    editingGroupId = null;
+});
                                                                 <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
                                                                     <p class="flex items-center gap-1">
                                                                         <i class="ri-user-add-line text-base"></i>

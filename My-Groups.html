@@ -80,10 +80,10 @@
             <section class="w-full max-w-[520px] overflow-hidden rounded-2xl bg-white shadow-2xl ">
                 <div class="flex items-start justify-between border-b border-gray-200 px-6 py-5">
                     <div>
-                        <h5 class="text-lg font-medium text-slate-800">
+                        <h5 id="form-title" class="text-lg font-medium text-slate-800">
                             Create new group
                         </h5>
-                        <small class="mt-1 block text-xs text-slate-500">
+                        <small id="form-title-description" class="mt-1 block text-xs text-slate-500">
                             Create a space to track expenses together.
                         </small>
                     </div>
@@ -143,17 +143,21 @@
                             class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
                             Cancel
                         </button>
-                        <button type="submit"
+                        <button type="submit" id="submit-button"
                             class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-medium text-white shadow-md hover:bg-indigo-700">
                             <i class="ri-check-line text-lg"></i>
                             Create group
                         </button>
+                        <button id="delete-button" class="flex items-center gap-2 rounded-lg bg-red-600 px-12j py-4 text-sm font-medium text-white shadow-md hover:bg-red-700 hidden" type="button">X Delete</button>
 
                     </div>
                 </form>
             </section>
         </div>
     </section>
+
+
+
 <section id="Balances">
     <header class="flex items-center justify-between border-b border-gray-200 bg-white px-4 sm:px-9 py-5">
         <div class="flex flex-col gap-1">
