@@ -1,3 +1,4 @@
+
 let editingExpenseId = null;
 
 let Depenses = [];
@@ -228,9 +229,12 @@ paidByName.textContent = payer ? payer.nom : 'Unknown';
 paidByContainer.appendChild(paidByLabel);
 paidByContainer.appendChild(paidByName);
 const deleteButton = document.createElement('button');
-deleteButton.textContent = '🗑️';
-deleteButton.className = 'p-2 rounded-lg hover:bg-red-100 cursor-pointer';
+deleteButton.innerHTML = '<i class="ri-delete-bin-line"></i> Delete expense';
+deleteButton.className = 'rounded-lg bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700';
 deleteButton.addEventListener('click', function () {
+
+
+
 
     const confirmation = confirm('Are you sure you want to delete this expense?');
 
@@ -244,8 +248,8 @@ deleteButton.addEventListener('click', function () {
 });
 
 const editButton = document.createElement('button');
-editButton.textContent = '✏️';
-editButton.className = 'p-2 rounded-lg hover:bg-blue-100 cursor-pointer';
+editButton.textContent = 'Edit';
+editButton.className = 'rounded-lg bg-green-600 px-4 py-3 text-sm font-medium text-white hover:bg-green-700';
 
 
 editButton.addEventListener('click', function () {
