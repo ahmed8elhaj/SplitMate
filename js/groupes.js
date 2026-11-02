@@ -190,3 +190,42 @@ getFormData()
 emptyAndClose(cancelButton, groupFormContenair)
 
 handleGroupOptions(groupsContainer, Groupe);
+
+// Open group details
+groupsContainer.addEventListener('click', function (event) {
+    const button = event.target.closest('.open-group-button');
+
+    if (!button) {
+        return;
+    }
+
+    const groupId = Number(button.dataset.id);
+
+    const group = Groupe.find(function (element) {
+        return element.id === groupId;
+    });
+
+    if (!group) {
+        return;
+    }
+
+    selectedGroupId = groupId;
+
+    document.getElementById('groups-page-header').classList.add('hidden');
+    document.getElementById('groups-page-filters').classList.add('hidden');
+    document.getElementById('groups-page-list').classList.add('hidden');
+
+    document.getElementById('group-details').classList.remove('hidden');
+
+    document.getElementById('details-group-name').textContent = group.groupeName;
+    document.getElementById('details-group-description').textContent = group.groupeDescription;
+    document.getElementById('details-group-currency').textContent = group.groupeCurrency;
+    document.getElementById('details-group-avatar').textContent = group.avatar;
+    document.getElementById('details-group-status').textContent =
+        group.cloture ? 'Closed' : 'Active';
+
+    document.getElementById('group-expenses-section').classList.remove('hidden');
+    document.getElementById('group-members-section').classList.add('hidden');
+
+    showGroupExpenses(groupId);
+});
