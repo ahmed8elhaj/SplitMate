@@ -17,7 +17,7 @@ const groupsContainer = document.getElementById('groups-container');
 const groupsCounter = document.getElementById('groups-counter');
 const emptyGroupsMessage = document.getElementById("empty-message");
 
-const cancelButton = document.getElementById("cancel");
+const cancelButton = document.querySelector(".cancel");
 
 const submitButton = document.getElementById('submit-button')
 let groupeId = 11;

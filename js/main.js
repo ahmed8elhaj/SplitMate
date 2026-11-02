@@ -18,6 +18,8 @@ const btnAddexpenses =document.getElementById('btn-addexpenses');
 const AddExpensesForm=document.getElementById('Add-expenses');
 
 
+const concelExpenses = document.getElementById('concel-expenses')
+
 showHiddenElement(dashboardButton, dashboardPage);
 hideTheElement(dashboardButton, myGroupsPage);
 hideTheElement(dashboardButton, expensesPage);
@@ -47,6 +49,8 @@ hideTheElement(btnAddexpenses,recentExpensesSection );
 showHiddenElement(expensesButton,recentExpensesSection)
 hideTheElement(expensesButton,AddExpensesForm );
 
+showHiddenElement(concelExpenses,recentExpensesSection)
+hideTheElement(concelExpenses,AddExpensesForm );
 
 
 

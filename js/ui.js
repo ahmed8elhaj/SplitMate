@@ -108,10 +108,6 @@ function showGroups(groupes) {
 
         groupsContainer.appendChild(groupCarte)
     })
-};
-const titleFormGroup = document.getElementById('form-title');
-const formTitleDescription = document.getElementById('form-title-description');
-// const formTitleDescription=document.getElementById('form-title-description');
     let shownGroups = 0;
     for (let i = groupes.length - 1; i >= 0; i--) {
         if (shownGroups === 3) break;
@@ -134,50 +130,6 @@ const formTitleDescription = document.getElementById('form-title-description');
                                                                     </p>
                                                                 </div>
 
-let editingGroupId = null;
-function handleGroupOptions(container, groupes) {
-    container.addEventListener('click', event => {
-        const button = event.target.closest('.group-options');
-        if (!button) return;
-        const id = Number(button.dataset.id.replace('button-edit-', ''));
-        const selectedGroup = groupes.find(
-            group => group.id === id
-        );
-        if (!selectedGroup) return;
-        editingGroupId = selectedGroup.id;
-                                                                <div>
-                                                                    <h5 class="text-base font-medium text-slate-800">
-                                                                        ${group.groupeName}
-                                                                    </h5>
-
-                                                                    <p class="mt-1 text-xs text-slate-500">
-                                                                        ${group.groupeDescription}
-                                                                    </p>
-                                                                </div>
-
-        console.log(selectedGroup);
-        groupFormContenair.classList.remove("hidden");
-        deleteGroupButton.classList.remove("hidden");
-        groupeNameInpute.value = selectedGroup.groupeName;
-        groupeDescriptionInpute.value = selectedGroup.groupeDescription;
-        groupeCurrencyInpute.value = selectedGroup.groupeCurrency;
-        groupeDateInpute.value = selectedGroup.groupeDate;
-        submitButton.innerHTML = `<i class="ri-check-line text-lg text-white">Save changes</i>`
-    });
-}
-deleteGroupButton.addEventListener('click', () => {
-    if (editingGroupId === null) return;
-    const index = Groupe.findIndex(
-        group => group.id === editingGroupId
-    );
-    if (index !== -1) {
-        Groupe.splice(index, 1);
-        showGroups(Groupe);
-    }
-    groupFormContenair.classList.add("hidden");
-    createGroupForm.reset();
-    editingGroupId = null;
-});
                                                                 <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
                                                                     <p class="flex items-center gap-1">
                                                                         <i class="ri-user-add-line text-base"></i>
@@ -354,51 +306,5 @@ function showExpenseParticipants(members) {
         label.appendChild(name);
 
         participantsContainer.appendChild(label);
-    });
-}
-
-
-function showGroupExpenses(groupId) {
-
-    const container = document.getElementById('group-expenses-container');
-
-    const groupExpenses = Depenses.filter(function (expense) {
-        return expense.groupId === groupId;
-    });
-
-    container.innerHTML = '';
-
-    groupExpenses.forEach(function (expense) {
-
-        const card = document.createElement('div');
-        card.className = 'flex flex-wrap items-center gap-4 p-5 border-b border-slate-100';
-
-        const information = document.createElement('div');
-        information.className = 'flex-1';
-
-        const title = document.createElement('h3');
-        title.className = 'text-sm font-semibold text-slate-800';
-        title.textContent = expense.title;
-
-        const date = document.createElement('p');
-        date.className = 'text-xs text-slate-400 mt-1';
-        date.textContent = expense.date;
-
-        const category = document.createElement('span');
-        category.className = 'bg-indigo-100 text-indigo-600 rounded-full px-3 py-1 text-xs';
-        category.textContent = expense.category;
-
-        const amount = document.createElement('p');
-        amount.className = 'text-sm font-semibold text-slate-800';
-        amount.textContent = expense.amount.toFixed(2) + ' MAD';
-
-        information.appendChild(title);
-        information.appendChild(date);
-
-        card.appendChild(information);
-        card.appendChild(category);
-        card.appendChild(amount);
-
-        container.appendChild(card);
     });
 }

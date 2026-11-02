@@ -299,7 +299,7 @@
                             <i class="ri-delete-bin-line"></i> Delete group
                         </button>
                         <button
-                            class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                            class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 cancel"
                             id="cancel" type="button">
                             Cancel
                         </button>
@@ -543,8 +543,11 @@
                 <div id="expenses-selectedCategories-container">
                     <select class="expenses-options" id="expenses-selectedCategories">
                         <option>All categories</option>
-                        <option>Dining</option>
-                        <option>Tronsport</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Stay</option>
+                        <option>Shopping</option>
+                        <option>Other</option>
                     </select>
                 </div>
                 <div id="expenses-payers-container">
@@ -592,9 +595,12 @@
                     <div class="gap20px">
                         <label>Category*</label>
                         <select class="border-array" id="expense-category">
-                            <option>Dining</option>
+                            <option>All categories</option>
+                            <option>Food</option>
                             <option>Transport</option>
                             <option>Stay</option>
+                            <option>Shopping</option>
+                            <option>Other</option>
                         </select>
                     </div>
                     <div class="gap20px">
@@ -610,7 +616,7 @@
                 <div class="flex flex-wrap gap-3 padding-chart" id="expense-participants">
                 </div>
             </div>
-          
+
 
             <div class="border-array space-between padding-chart">
                 <div class="gap10px">
@@ -620,7 +626,7 @@
                 <p class="krishna">166.67 MAD each</p>
             </div>
             <div class="border-array padding-chart flex-end gap10px">
-                <button class="background-grey" id="concel-expenses">cancel</button>
+                <button class="background-grey cancel" id="concel-expenses">cancel</button>
                 <button class="white" id="save-expenses"><i class="fa-solid fa-check"></i> Save Expenses</button>
             </div>
         </section>
