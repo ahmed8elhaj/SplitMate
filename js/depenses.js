@@ -3,7 +3,7 @@ let editingExpenseId = null;
 
 let Depenses = [];
 
- Depenses = [
+Depenses = [
     {
         id: 1,
         groupId: 1,
@@ -44,8 +44,8 @@ let Depenses = [];
         amount: 180,
         date: '2026-10-28',
         category: 'Dining',
-        paidBy: 3,
-        participants: [2, 3],
+        paidBy: 4,
+        participants: [4, 5],
         splitType: 'equal'
     }
 ];
@@ -130,26 +130,26 @@ saveExpenseButton.addEventListener('click', function () {
     }
 
 
-showGroupExpenses(selectedGroupId);
-showAllExpenses();
+    showGroupExpenses(selectedGroupId);
+    updateGroupSummary(selectedGroupId);
 
 
-document.getElementById('Add-expenses').classList.add('hidden');
+    document.getElementById('Add-expenses').classList.add('hidden');
 
 
-document.getElementById('recent-expenses').classList.remove('hidden');
+    document.getElementById('group-expenses-section').classList.remove('hidden');
 
 
-document.getElementById('Expenses-title-input').value = '';
-document.getElementById('expense-amount').value = '';
-document.getElementById('expense-date').value = '';
-document.getElementById('expense-category').selectedIndex = 0;
-document.getElementById('expense-paid-by').selectedIndex = 0;
+    document.getElementById('Expenses-title-input').value = '';
+    document.getElementById('expense-amount').value = '';
+    document.getElementById('expense-date').value = '';
+    document.getElementById('expense-category').selectedIndex = 0;
+    document.getElementById('expense-paid-by').selectedIndex = 0;
 
 
-editingExpenseId = null;
+    editingExpenseId = null;
 
-console.log('All expenses:', Depenses);
+    console.log('All expenses:', Depenses);
 
 });
 
@@ -215,89 +215,92 @@ function createExpenseCard(expense) {
 
 
 
-const paidByContainer = document.createElement('div');
-paidByContainer.className = 'flex flex-col gap-1 min-w-20';
+    const paidByContainer = document.createElement('div');
+    paidByContainer.className = 'flex flex-col gap-1 min-w-20';
 
-const paidByLabel = document.createElement('p');
-paidByLabel.className = 'text-xs text-slate-400';
-paidByLabel.textContent = 'Paid by';
+    const paidByLabel = document.createElement('p');
+    paidByLabel.className = 'text-xs text-slate-400';
+    paidByLabel.textContent = 'Paid by';
 
-const paidByName = document.createElement('p');
-paidByName.className = 'text-xs font-semibold text-slate-800';
-paidByName.textContent = payer ? payer.nom : 'Unknown';
+    const paidByName = document.createElement('p');
+    paidByName.className = 'text-xs font-semibold text-slate-800';
+    paidByName.textContent = payer ? payer.nom : 'Unknown';
 
-paidByContainer.appendChild(paidByLabel);
-paidByContainer.appendChild(paidByName);
-const deleteButton = document.createElement('button');
-deleteButton.innerHTML = '<i class="ri-delete-bin-line"></i> Delete expense';
-deleteButton.className = 'rounded-lg bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700';
-deleteButton.addEventListener('click', function () {
-
-
+    paidByContainer.appendChild(paidByLabel);
+    paidByContainer.appendChild(paidByName);
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<i class="ri-delete-bin-line"></i> Delete expense';
+    deleteButton.className = 'rounded-lg bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700';
+    deleteButton.addEventListener('click', function () {
 
 
-    const confirmation = confirm('Are you sure you want to delete this expense?');
-
-    if (confirmation) {
-        deleteExpense(expense.id);
-
-        showGroupExpenses(expense.groupId);
-        showAllExpenses();
-    }
-
-});
-
-const editButton = document.createElement('button');
-editButton.textContent = 'Edit';
-editButton.className = 'rounded-lg bg-green-600 px-4 py-3 text-sm font-medium text-white hover:bg-green-700';
 
 
-editButton.addEventListener('click', function () {
+        const confirmation = confirm('Are you sure you want to delete this expense?');
 
-    editingExpenseId = expense.id;
+        if (confirmation) {
+            deleteExpense(expense.id);
 
-    document.dispatchEvent(
-        new CustomEvent('splitmate:open-expense-form', {
-            detail: {
-                groupId: expense.groupId
-            }
-        })
-    );
-
-    fillExpenseForm(expense);
-
-    document.getElementById('expense-paid-by').value = expense.paidBy;
-
-    const checkboxes = document.querySelectorAll(
-        '#expense-participants input[type="checkbox"]'
-    );
-
-    checkboxes.forEach(function (checkbox) {
-
-        if (expense.participants.includes(Number(checkbox.value))) {
-            checkbox.checked = true;
-        } else {
-            checkbox.checked = false;
+            showGroupExpenses(expense.groupId);
+            updateGroupSummary(expense.groupId);
         }
 
     });
 
-});
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.className = 'rounded-lg bg-green-600 px-4 py-3 text-sm font-medium text-white hover:bg-green-700';
 
 
-card.appendChild(icon);
-card.appendChild(information);
-card.appendChild(category);
-card.appendChild(paidByContainer);
-card.appendChild(amountContainer);
-card.appendChild(editButton);
-card.appendChild(deleteButton);
+    editButton.addEventListener('click', function () {
+
+        editingExpenseId = expense.id;
+
+        document.dispatchEvent(
+            new CustomEvent('splitmate:open-expense-form', {
+                detail: {
+                    groupId: expense.groupId
+                }
+            })
+        );
+
+        fillExpenseForm(expense);
+
+        document.getElementById('expense-paid-by').value = expense.paidBy;
+
+        const checkboxes = document.querySelectorAll(
+            '#expense-participants input[type="checkbox"]'
+        );
+
+        checkboxes.forEach(function (checkbox) {
+
+            if (expense.participants.includes(Number(checkbox.value))) {
+                checkbox.checked = true;
+            } else {
+                checkbox.checked = false;
+            }
+
+        });
+
+    });
+
+
+    card.appendChild(icon);
+    card.appendChild(information);
+    card.appendChild(category);
+    card.appendChild(paidByContainer);
+    card.appendChild(amountContainer);
+    card.appendChild(editButton);
+    card.appendChild(deleteButton);
 
     return card;
 }
 
 function showGroupExpenses(groupId) {
-
+    if (typeof filterGroupExpenses === 'function' && selectedGroupId === groupId) {
+        filterGroupExpenses();
+        return;
+    }
     const container = document.getElementById('group-expenses-container');
 
     const expenses = getGroupExpenses(groupId);
@@ -314,22 +317,12 @@ function showGroupExpenses(groupId) {
 
 }
 
+// Old global list removed. Keep this helper for any older callers.
 function showAllExpenses() {
-
-    const container = document.getElementById('all-expenses-list');
-
-    container.innerHTML = '';
-
-    Depenses.forEach(function (expense) {
-
-        const card = createExpenseCard(expense);
-
-        container.appendChild(card);
-
-    });
-
+    if (selectedGroupId !== null) {
+        showGroupExpenses(selectedGroupId);
+    }
 }
-
 
 function deleteExpense(expenseId) {
 

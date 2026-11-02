@@ -17,7 +17,7 @@ const groupsContainer = document.getElementById('groups-container');
 const groupsCounter = document.getElementById('groups-counter');
 const emptyGroupsMessage = document.getElementById("empty-message");
 
-const cancelButton = document.querySelector(".cancel");
+const cancelButton = document.getElementById('cancel');
 
 const submitButton = document.getElementById('submit-button')
 let groupeId = 11;
@@ -221,6 +221,7 @@ groupsContainer.addEventListener('click', function (event) {
     document.getElementById('details-group-description').textContent = group.groupeDescription;
     document.getElementById('details-group-currency').textContent = group.groupeCurrency;
     document.getElementById('details-group-avatar').textContent = group.avatar;
+    document.getElementById('details-group-date').textContent = group.groupeDate;
     document.getElementById('details-group-status').textContent =
         group.cloture ? 'Closed' : 'Active';
 
@@ -228,4 +229,8 @@ groupsContainer.addEventListener('click', function (event) {
     document.getElementById('group-members-section').classList.add('hidden');
 
     showGroupExpenses(groupId);
+    showGroupMembers(groupId);
+    displayPayers(groupId);
+    showGroupTab('expenses');
+    updateGroupSummary(groupId);
 });
