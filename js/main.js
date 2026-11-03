@@ -1,122 +1,126 @@
 
-
 const dashboardButton = document.getElementById('btn-Dashboard');
 const myGroupsButton = document.getElementById('btn-Mygroups');
-const expensesButton = document.getElementById('btn-ALLexpenses');
-const balancesButton = document.getElementById('btn-Ballances');
-
 const dashboardPage = document.getElementById('dashboard');
 const myGroupsPage = document.getElementById('my-groups');
-const expensesPage = document.getElementById('all-expenses');
-const balancesPage = document.getElementById('Balances');
-
-const recentExpensesSection =document.getElementById('recent-expenses')
-
-
-
-const btnAddexpenses =document.getElementById('btn-addexpenses');
-const AddExpensesForm=document.getElementById('Add-expenses');
-
-
-const concelExpenses = document.getElementById('concel-expenses')
-
-showHiddenElement(dashboardButton, dashboardPage);
-hideTheElement(dashboardButton, myGroupsPage);
-hideTheElement(dashboardButton, expensesPage);
-hideTheElement(dashboardButton, balancesPage);
-
-
-hideTheElement(myGroupsButton, dashboardPage);
-showHiddenElement(myGroupsButton, myGroupsPage);
-hideTheElement(myGroupsButton, expensesPage);
-hideTheElement(myGroupsButton, balancesPage);
-
-
-hideTheElement(expensesButton, dashboardPage);
-hideTheElement(expensesButton, myGroupsPage);
-showHiddenElement(expensesButton, expensesPage);
-hideTheElement(expensesButton, balancesPage);
-
-
-hideTheElement(balancesButton, dashboardPage);
-hideTheElement(balancesButton, myGroupsPage);
-hideTheElement(balancesButton, expensesPage);
-showHiddenElement(balancesButton, balancesPage);
-
-showHiddenElement(btnAddexpenses, AddExpensesForm);
-hideTheElement(btnAddexpenses,recentExpensesSection );
-
-showHiddenElement(expensesButton,recentExpensesSection)
-hideTheElement(expensesButton,AddExpensesForm );
-
-showHiddenElement(concelExpenses,recentExpensesSection)
-hideTheElement(concelExpenses,AddExpensesForm );
-
-
-
-function highlightButton(selectedButton) {
-    dashboardButton.classList.remove('is-active');
-    myGroupsButton.classList.remove('is-active');
-    expensesButton.classList.remove('is-active');
-    balancesButton.classList.remove('is-active');
-    selectedButton.classList.add('is-active');
-}
-
-dashboardButton.addEventListener('click', function () {
-    highlightButton(dashboardButton);
-});
-myGroupsButton.addEventListener('click', function () {
-    highlightButton(myGroupsButton);
-});
-expensesButton.addEventListener('click', function () {
-    highlightButton(expensesButton);
-    showAllExpenses();
-});
-balancesButton.addEventListener('click', function () {
-    highlightButton(balancesButton);
-});
-highlightButton(dashboardButton);
-
-
-myGroupsButton.addEventListener('click', function () {
-    document.getElementById('group-details').classList.add('hidden');
-    document.getElementById('groups-page-header').classList.remove('hidden');
-    document.getElementById('groups-page-filters').classList.remove('hidden');
-    document.getElementById('groups-page-list').classList.remove('hidden');
-});
-
+const AddExpensesForm = document.getElementById('Add-expenses');
 
 const groupExpensesTab = document.getElementById('tab-expenses');
 const groupMembersTab = document.getElementById('tab-members');
 const groupBalancesTab = document.getElementById('tab-balances');
 const groupExpensesSection = document.getElementById('group-expenses-section');
 const groupMembersSection = document.getElementById('group-members-section');
+const groupBalancesSection = document.getElementById('group-balances-section');
 
-showHiddenElement(groupExpensesTab, groupExpensesSection);
-hideTheElement(groupExpensesTab, groupMembersSection);
-
-showHiddenElement(groupMembersTab, groupMembersSection);
-hideTheElement(groupMembersTab, groupExpensesSection);
+const saveExpenseButton = document.getElementById('save-expenses');
+const dashboardViewAllButtons = document.querySelectorAll('#dashboard .btn-viewAll');
 
 
-groupBalancesTab.addEventListener('click', function () {
-    balancesButton.click();
+const groupCategorySelect = document.getElementById('group-expense-category');
+const groupPayerSelect = document.getElementById('group-expense-payer');
+const groupSearchInput = document.getElementById('group-expense-search');
+const groupSortSelect = document.getElementById('group-expense-sort');
+const expensesContainer = document.getElementById('group-expenses-container');
+
+
+dashboardButton.addEventListener('click', function () { showMainPage(dashboardPage); });
+myGroupsButton.addEventListener('click', showGroupsPage);
+showMainPage(dashboardPage);
+
+groupExpensesTab.addEventListener('click', function () { showGroupTab('expenses'); });
+groupMembersTab.addEventListener('click', function () { showGroupTab('members'); });
+groupBalancesTab.addEventListener('click', function () { showGroupTab('balances'); });
+
+document.getElementById('concel-expenses').addEventListener('click', function () {
+    editingExpenseId = null;
+    showGroupTab('expenses');
 });
 
 
-groupExpensesTab.addEventListener('click', function () {
-    groupExpensesTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupExpensesTab.classList.remove('text-slate-500');
-    groupMembersTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupMembersTab.classList.add('text-slate-500');
+
+createGroupBtn.addEventListener('click', resetGroupFormMode);
+closeGroupeFormBtn.addEventListener('click', resetGroupFormMode);
+
+
+document.getElementById('cancel').addEventListener('click', resetGroupFormMode);
+deleteGroupButton.addEventListener('click', resetGroupFormMode);
+createGroupForm.addEventListener('submit', function () {
+    if (groupFormContenair.classList.contains('hidden')) resetGroupFormMode();
 });
 
-groupMembersTab.addEventListener('click', function () {
-    groupMembersTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupMembersTab.classList.remove('text-slate-500');
-    groupExpensesTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupExpensesTab.classList.add('text-slate-500');
+document.getElementById('btn-addGroup').addEventListener('click', function () {
+    showGroupsPage();
+    createGroupBtn.click();
 });
+
+dashboardViewAllButtons.forEach(function (button) {
+    button.addEventListener('click', showGroupsPage);
+});
+
+
+function showMainPage(page) {
+    dashboardPage.classList.add('hidden');
+    myGroupsPage.classList.add('hidden');
+    page.classList.remove('hidden');
+    dashboardButton.classList.remove('is-active');
+    myGroupsButton.classList.remove('is-active');
+    if (page === dashboardPage) dashboardButton.classList.add('is-active');
+    if (page === myGroupsPage) myGroupsButton.classList.add('is-active');
+}
+
+
+function showGroupsPage() {
+    selectedGroupId = null;
+    document.getElementById('group-details').classList.add('hidden');
+    document.getElementById('groups-page-header').classList.remove('hidden');
+    document.getElementById('groups-page-filters').classList.remove('hidden');
+    document.getElementById('groups-page-list').classList.remove('hidden');
+    AddExpensesForm.classList.add('hidden');
+    showMainPage(myGroupsPage);
+}
+
+
+function addToClasslist(classesToAdd, elements) {
+    elements.forEach((item) => {
+        item.classList.add(...classesToAdd)
+    })
+
+}
+
+function removeFromClasslist(classesToRemove, elements) {
+    elements.forEach((item) => {
+        item.classList.remove(...classesToRemove)
+    })
+}
+
+
+function showGroupTab(tab) {
+
+    addToClasslist(['hidden'], [groupExpensesSection, groupBalancesSection, AddExpensesForm])
+
+    removeFromClasslist(['border-b-2', 'border-indigo-600', 'text-indigo-600'], [groupExpensesTab, groupMembersTab, groupBalancesTab])
+
+    addToClasslist(['text-slate-500'], [groupExpensesTab, groupMembersTab, groupBalancesTab])
+
+
+    let activeTab = groupExpensesTab;
+    if (tab === 'expenses') {
+        groupExpensesSection.classList.remove('hidden');
+        if (selectedGroupId !== null) filterGroupExpenses();
+    }
+    if (tab === 'members') {
+        activeTab = groupMembersTab;
+        groupMembersSection.classList.remove('hidden');
+        if (selectedGroupId !== null) showGroupMembers(selectedGroupId);
+    }
+    if (tab === 'balances') {
+        activeTab = groupBalancesTab;
+        groupBalancesSection.classList.remove('hidden');
+        if (selectedGroupId !== null) showGroupBalances(selectedGroupId);
+    }
+    activeTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
+    activeTab.classList.remove('text-slate-500');
+}
 
 
 function resetGroupFormMode() {
@@ -130,33 +134,38 @@ function resetGroupFormMode() {
     dateErrorMessage.textContent = '';
 }
 
-createGroupBtn.addEventListener('click', resetGroupFormMode);
-closeGroupeFormBtn.addEventListener('click', resetGroupFormMode);
-cancelButton.addEventListener('click', resetGroupFormMode);
-deleteGroupButton.addEventListener('click', resetGroupFormMode);
 
-createGroupForm.addEventListener('submit', function () {
+function showGroupMembers(groupId) {
+    const container = document.getElementById('members-container');
+    container.replaceChildren();
+    const members = getGroupMembers(groupId);
+    members.forEach(function (member) {
+        const item = document.createElement('div');
+        item.className = 'flex items-center gap-4 border-b border-slate-100 p-5';
+        const avatar = document.createElement('div');
+        avatar.className = 'flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600';
+        avatar.textContent = member.nom.substring(0, 2).toUpperCase();
+        const name = document.createElement('p');
+        name.className = 'text-sm font-semibold text-slate-800';
+        name.textContent = member.nom;
+        item.appendChild(avatar);
+        item.appendChild(name);
+        container.appendChild(item);
+    });
+    if (members.length === 0) container.textContent = 'No members in this group yet.';
+}
 
-    if (groupFormContenair.classList.contains('hidden')) {
-        resetGroupFormMode();
-    }
-});
 
-
-const dashboardAddGroupButton = document.getElementById('btn-addGroup');
-dashboardAddGroupButton.addEventListener('click', function () {
-    myGroupsButton.click();
-    createGroupBtn.click();
-});
-
-
-const dashboardViewAllButtons = document.querySelectorAll('#dashboard .btn-viewAll');
-const expensesViewAllButton = dashboardViewAllButtons[0];
-const groupsViewAllButton = dashboardViewAllButtons[1];
-
-expensesViewAllButton.addEventListener('click', function () {
-    expensesButton.click();
-});
-groupsViewAllButton.addEventListener('click', function () {
-    myGroupsButton.click();
-});
+function updateGroupSummary(groupId) {
+    const group = Groupe.find(function (item) { return item.id === groupId; });
+    if (!group) return;
+    const expenses = getGroupExpenses(groupId);
+    const members = getGroupMembers(groupId);
+    let total = 0;
+    expenses.forEach(function (expense) { total += expense.amount; });
+    document.getElementById('details-group-total').textContent = total.toFixed(2) + ' ' + group.groupeCurrency;
+    document.getElementById('details-group-members-count').textContent = members.length + ' members';
+    document.getElementById('group-expenses-summary').textContent = expenses.length + ' expenses · ' + total.toFixed(2) + ' ' + group.groupeCurrency;
+    document.getElementById('details-group-outstanding').textContent = 'Balances for ' + group.groupeName;
+    if (!groupBalancesSection.classList.contains('hidden')) showGroupBalances(groupId);
+}

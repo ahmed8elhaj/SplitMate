@@ -1,15 +1,8 @@
 
-let Membres = [
-    // {
-    //     id: 1,
-    //     nom: "Ahmed",
-    //     pseudo: "ahmed",
-    //     groupId: 2
-    // },
+let Membres = [];
 
-];
 
-let groupDataId = 0;
+
 
 
 const groupsPageList = document.getElementById('groups-page-list');
@@ -25,7 +18,7 @@ const membersContainer = document.getElementById('members-container')
 
 groupsPageList.addEventListener('click', (event) => {
     const btnopnGroup = event.target.closest('button')
-    groupDataId = btnopnGroup.dataset.id;
+    selectedGroupId = btnopnGroup.dataset.id;
      affichierMembersgroup()
 });
 
@@ -61,7 +54,7 @@ function createMember() {
         id: Date.now(),
         nom: fullMemberInPut.value,
         pseudo: `@${nickNameMemberInPut.value}`,
-        groupId: groupDataId
+        groupId: selectedGroupId
     }
     Membres.push(member);
 }
@@ -70,11 +63,11 @@ function createMember() {
 function affichierMembersgroup() {
 
     membersContainer.innerHTML = Membres.map((member) => {
-        if (member.groupId !== groupDataId) {
+        if (member.groupId !== selectedGroupId) {
             return;
         }
         console.log(member.groupId);
-        console.log(groupDataId);
+        console.log(selectedGroupId);
 
         return `
                    <div
@@ -114,6 +107,16 @@ function affichierMembersgroup() {
     })
 
 }
+
+function getGroupMembers(groupId) {
+    const groupMembers = Membres.filter(function (member) {
+        return member.groupId === groupId;
+    });
+
+    return groupMembers;
+}
+
+
 
 function getGroupMembers(groupId) {
     const groupMembers = Membres.filter(function (member) {

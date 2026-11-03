@@ -212,6 +212,7 @@ deleteGroupButton.addEventListener('click', function () {
     });
     if (index !== -1) {
         Groupe.splice(index, 1);
+         saveToLS(GROUPS_KEY, Groupe);
         showGroups(Groupe);
     }
     groupFormContenair.classList.add("hidden");
@@ -234,9 +235,8 @@ function openExpenseForm(groupId) {
     showPaidByMembers(groupMembers);
     showExpenseParticipants(groupMembers);
 
-    expensesButton.click();
-
-    document.getElementById('recent-expenses').classList.add('hidden');
+    showGroupTab('expenses');
+    document.getElementById('group-expenses-section').classList.add('hidden');
     document.getElementById('Add-expenses').classList.remove('hidden');
 }
 
