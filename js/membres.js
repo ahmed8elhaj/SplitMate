@@ -1,82 +1,82 @@
 
-let Membres = [];
-// Membres = [
-//     {
-//         id: 1,
-//         nom: "Ahmed",
-//         pseudo: "ahmed",
-//         groupId: 1
-//     },
-//     {
-//         id: 2,
-//         nom: "Sara",
-//         pseudo: "sara",
-//         groupId: 1
-//     },
-//     {
-//         id: 3,
-//         nom: "Youssef",
-//         pseudo: "youssef",
-//         groupId: 1
-//     },
-//     {
-//         id: 4,
-//         nom: "Amine",
-//         pseudo: "amine",
-//         groupId: 2
-//     }
-// ];
+let Membres = [
+    // {
+    //     id: 1,
+    //     nom: "Ahmed",
+    //     pseudo: "ahmed",
+    //     groupId: 2
+    // },
 
+];
+
+let groupDataId = 0;
+
+
+const groupsPageList = document.getElementById('groups-page-list');
 const addMemberform = document.getElementById('add-member-formuler');
 const groupDetails = document.getElementById('group-details');
 const btnAddMember = document.getElementById('add-member-btn');
 const btnCancelform = document.getElementById('btnCancel-member-form');
 const fullMemberInPut = document.getElementById('full-MemberInP');
-const nickNameMemberInPut =document.getElementById('nickName-MemberInP');
-const btnSaveMemberform =document.getElementById('btnSave-member-form');
+const nickNameMemberInPut = document.getElementById('nickName-MemberInP');
+const btnSaveMemberform = document.getElementById('btnSave-member-form');
 const membersContainer = document.getElementById('members-container')
 
-addMemberform.addEventListener('click',(event)=>{
+
+groupsPageList.addEventListener('click', (event) => {
+    const btnopnGroup = event.target.closest('button')
+    groupDataId = btnopnGroup.dataset.id;
+     affichierMembersgroup()
+});
+
+addMemberform.addEventListener('submit', (event) => {
     event.preventDefault();
-})
 
-btnAddMember.addEventListener('click',()=>{
-    addMemberform.style.display='block';
-})
-
-btnCancelform.addEventListener('click',()=>{
-     addMemberform.style.display='none';
-})
-
-btnSaveMemberform.addEventListener('click',()=>{
-
-    if(fullMemberInPut.value.trim()=="" || nickNameMemberInPut.value.length == 0){return;};
-    if(fullMemberInPut.value !== null || nickNameMemberInPut.value == null){
-    addMemberform.style.display='none';
-    alert("member add successfully !.");
+    if (fullMemberInPut.value.trim() == "" || nickNameMemberInPut.value.length == 0) { return; };
+    if (fullMemberInPut.value !== null || nickNameMemberInPut.value == null) {
+        addMemberform.style.display = 'none';
+        alert("member add successfully !.");
     }
 
-    const member={
-         id: Date.now(),
-         nom: fullMemberInPut.value,
-         pseudo: `@${nickNameMemberInPut.value}`,
-        //  groupId: null
-    }
-
-    Membres.push(member);
+    createMember()
     affichierMembersgroup()
-    
+
     console.log(Membres)
 
-    fullMemberInPut.value='';
-    nickNameMemberInPut.value='';
+    fullMemberInPut.value = '';
+    nickNameMemberInPut.value = '';
+})
 
+btnAddMember.addEventListener('click', () => {
+    addMemberform.style.display = 'block';
+})
+
+btnCancelform.addEventListener('click', () => {
+    addMemberform.style.display = 'none';
 })
 
 
-function affichierMembersgroup(){
-   membersContainer.innerHTML = Membres.map((member)=>{
-    return `
+function createMember() {
+    const member = {
+        id: Date.now(),
+        nom: fullMemberInPut.value,
+        pseudo: `@${nickNameMemberInPut.value}`,
+        groupId: groupDataId
+    }
+    Membres.push(member);
+}
+
+
+function affichierMembersgroup() {
+
+    membersContainer.innerHTML = Membres.map((member) => {
+        if (member.groupId !== groupDataId) {
+            return;
+        }
+        console.log(member.groupId);
+        console.log(groupDataId);
+
+        return `
                    <div
                      class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100"
                    >
@@ -110,7 +110,9 @@ function affichierMembersgroup(){
                    </div> 
     
     `
-   })
+
+    })
+
 }
 
 function getGroupMembers(groupId) {
