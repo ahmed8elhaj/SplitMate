@@ -1,9 +1,62 @@
-// Navigation: Dashboard and My Groups are the only main pages.
+
 const dashboardButton = document.getElementById('btn-Dashboard');
 const myGroupsButton = document.getElementById('btn-Mygroups');
 const dashboardPage = document.getElementById('dashboard');
 const myGroupsPage = document.getElementById('my-groups');
 const AddExpensesForm = document.getElementById('Add-expenses');
+
+const groupExpensesTab = document.getElementById('tab-expenses');
+const groupMembersTab = document.getElementById('tab-members');
+const groupBalancesTab = document.getElementById('tab-balances');
+const groupExpensesSection = document.getElementById('group-expenses-section');
+const groupMembersSection = document.getElementById('group-members-section');
+const groupBalancesSection = document.getElementById('group-balances-section');
+
+const saveExpenseButton = document.getElementById('save-expenses');
+const dashboardViewAllButtons = document.querySelectorAll('#dashboard .btn-viewAll');
+
+
+const groupCategorySelect = document.getElementById('group-expense-category');
+const groupPayerSelect = document.getElementById('group-expense-payer');
+const groupSearchInput = document.getElementById('group-expense-search');
+const groupSortSelect = document.getElementById('group-expense-sort');
+const expensesContainer = document.getElementById('group-expenses-container');
+
+
+dashboardButton.addEventListener('click', function () { showMainPage(dashboardPage); });
+myGroupsButton.addEventListener('click', showGroupsPage);
+showMainPage(dashboardPage);
+
+groupExpensesTab.addEventListener('click', function () { showGroupTab('expenses'); });
+groupMembersTab.addEventListener('click', function () { showGroupTab('members'); });
+groupBalancesTab.addEventListener('click', function () { showGroupTab('balances'); });
+
+document.getElementById('concel-expenses').addEventListener('click', function () {
+    editingExpenseId = null;
+    showGroupTab('expenses');
+});
+
+
+
+createGroupBtn.addEventListener('click', resetGroupFormMode);
+closeGroupeFormBtn.addEventListener('click', resetGroupFormMode);
+
+
+document.getElementById('cancel').addEventListener('click', resetGroupFormMode);
+deleteGroupButton.addEventListener('click', resetGroupFormMode);
+createGroupForm.addEventListener('submit', function () {
+    if (groupFormContenair.classList.contains('hidden')) resetGroupFormMode();
+});
+
+document.getElementById('btn-addGroup').addEventListener('click', function () {
+    showGroupsPage();
+    createGroupBtn.click();
+});
+
+dashboardViewAllButtons.forEach(function (button) {
+    button.addEventListener('click', showGroupsPage);
+});
+
 
 function showMainPage(page) {
     dashboardPage.classList.add('hidden');
@@ -14,6 +67,8 @@ function showMainPage(page) {
     if (page === dashboardPage) dashboardButton.classList.add('is-active');
     if (page === myGroupsPage) myGroupsButton.classList.add('is-active');
 }
+
+
 function showGroupsPage() {
     selectedGroupId = null;
     document.getElementById('group-details').classList.add('hidden');
@@ -23,28 +78,31 @@ function showGroupsPage() {
     AddExpensesForm.classList.add('hidden');
     showMainPage(myGroupsPage);
 }
-dashboardButton.addEventListener('click', function () { showMainPage(dashboardPage); });
-myGroupsButton.addEventListener('click', showGroupsPage);
-showMainPage(dashboardPage);
 
-const groupExpensesTab = document.getElementById('tab-expenses');
-const groupMembersTab = document.getElementById('tab-members');
-const groupBalancesTab = document.getElementById('tab-balances');
-const groupExpensesSection = document.getElementById('group-expenses-section');
-const groupMembersSection = document.getElementById('group-members-section');
-const groupBalancesSection = document.getElementById('group-balances-section');
+
+function addToClasslist(classesToAdd, elements) {
+    elements.forEach((item) => {
+        item.classList.add(...classesToAdd)
+    })
+
+}
+
+function removeFromClasslist(classesToRemove, elements) {
+    elements.forEach((item) => {
+        item.classList.remove(...classesToRemove)
+    })
+}
+
 
 function showGroupTab(tab) {
-    groupExpensesSection.classList.add('hidden');
-    groupMembersSection.classList.add('hidden');
-    groupBalancesSection.classList.add('hidden');
-    AddExpensesForm.classList.add('hidden');
-    groupExpensesTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupMembersTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupBalancesTab.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600');
-    groupExpensesTab.classList.add('text-slate-500');
-    groupMembersTab.classList.add('text-slate-500');
-    groupBalancesTab.classList.add('text-slate-500');
+
+    addToClasslist(['hidden'], [groupExpensesSection, groupBalancesSection, AddExpensesForm])
+
+    removeFromClasslist(['border-b-2', 'border-indigo-600', 'text-indigo-600'], [groupExpensesTab, groupMembersTab, groupBalancesTab])
+
+    addToClasslist(['text-slate-500'], [groupExpensesTab, groupMembersTab, groupBalancesTab])
+
+
     let activeTab = groupExpensesTab;
     if (tab === 'expenses') {
         groupExpensesSection.classList.remove('hidden');
@@ -63,14 +121,7 @@ function showGroupTab(tab) {
     activeTab.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600');
     activeTab.classList.remove('text-slate-500');
 }
-groupExpensesTab.addEventListener('click', function () { showGroupTab('expenses'); });
-groupMembersTab.addEventListener('click', function () { showGroupTab('members'); });
-groupBalancesTab.addEventListener('click', function () { showGroupTab('balances'); });
 
-document.getElementById('concel-expenses').addEventListener('click', function () {
-    editingExpenseId = null;
-    showGroupTab('expenses');
-});
 
 function resetGroupFormMode() {
     editingGroupId = null;
@@ -82,22 +133,7 @@ function resetGroupFormMode() {
     nameErrorMessage.textContent = '';
     dateErrorMessage.textContent = '';
 }
-createGroupBtn.addEventListener('click', resetGroupFormMode);
-closeGroupeFormBtn.addEventListener('click', resetGroupFormMode);
-// Existing HTML has id="cancel", not class="cancel".
-document.getElementById('cancel').addEventListener('click', resetGroupFormMode);
-deleteGroupButton.addEventListener('click', resetGroupFormMode);
-createGroupForm.addEventListener('submit', function () {
-    if (groupFormContenair.classList.contains('hidden')) resetGroupFormMode();
-});
-document.getElementById('btn-addGroup').addEventListener('click', function () {
-    showGroupsPage();
-    createGroupBtn.click();
-});
-const dashboardViewAllButtons = document.querySelectorAll('#dashboard .btn-viewAll');
-dashboardViewAllButtons.forEach(function (button) {
-    button.addEventListener('click', showGroupsPage);
-});
+
 
 function showGroupMembers(groupId) {
     const container = document.getElementById('members-container');
@@ -118,6 +154,8 @@ function showGroupMembers(groupId) {
     });
     if (members.length === 0) container.textContent = 'No members in this group yet.';
 }
+
+
 function updateGroupSummary(groupId) {
     const group = Groupe.find(function (item) { return item.id === groupId; });
     if (!group) return;

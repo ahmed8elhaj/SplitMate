@@ -1,57 +1,10 @@
 
 let editingExpenseId = null;
+let Depenses = readFromLS(DEPENSES_KEY);
 
-let Depenses = [];
 
-Depenses = [
-    {
-        id: 1,
-        groupId: 1,
-        title: 'Dinner',
-        amount: 300,
-        date: '2026-11-01',
-        category: 'Dining',
-        paidBy: 1,
-        participants: [1, 2, 3],
-        splitType: 'equal'
-    },
-    {
-        id: 2,
-        groupId: 1,
-        title: 'Taxi',
-        amount: 120,
-        date: '2026-10-30',
-        category: 'Transport',
-        paidBy: 2,
-        participants: [1, 2, 3],
-        splitType: 'equal'
-    },
-    {
-        id: 3,
-        groupId: 1,
-        title: 'Hotel',
-        amount: 900,
-        date: '2026-10-29',
-        category: 'Stay',
-        paidBy: 1,
-        participants: [1, 2],
-        splitType: 'equal'
-    },
-    {
-        id: 4,
-        groupId: 2,
-        title: 'Lunch',
-        amount: 180,
-        date: '2026-10-28',
-        category: 'Dining',
-        paidBy: 4,
-        participants: [4, 5],
-        splitType: 'equal'
-    }
-];
 
 function addExpense(groupId, title, amount, date, category, paidBy, participants) {
-
     const expense = {
         id: Date.now(),
         groupId: groupId,
@@ -63,17 +16,18 @@ function addExpense(groupId, title, amount, date, category, paidBy, participants
         participants: participants,
         splitType: 'equal'
     };
-
     Depenses.push(expense);
-
+    saveToLS(DEPENSES_KEY, Depenses);
     return expense;
 }
 
-const saveExpenseButton = document.getElementById('save-expenses');
+
+
+
+
 
 
 saveExpenseButton.addEventListener('click', function () {
-
     const title = document.getElementById('Expenses-title-input').value.trim();
     const amount = Number(document.getElementById('expense-amount').value);
     const date = document.getElementById('expense-date').value;
@@ -99,7 +53,6 @@ saveExpenseButton.addEventListener('click', function () {
     }
 
     if (editingExpenseId === null) {
-
         addExpense(
             selectedGroupId,
             title,
@@ -109,11 +62,8 @@ saveExpenseButton.addEventListener('click', function () {
             paidBy,
             participants
         );
-
         alert('Expense added successfully!');
-
     } else {
-
         updateExpense(
             editingExpenseId,
             title,
@@ -123,20 +73,12 @@ saveExpenseButton.addEventListener('click', function () {
             paidBy,
             participants
         );
-
         editingExpenseId = null;
-
         alert('Expense updated successfully!');
     }
-
-
     showGroupExpenses(selectedGroupId);
     updateGroupSummary(selectedGroupId);
-
-
     document.getElementById('Add-expenses').classList.add('hidden');
-
-
     document.getElementById('group-expenses-section').classList.remove('hidden');
 
 
@@ -317,7 +259,7 @@ function showGroupExpenses(groupId) {
 
 }
 
-// Old global list removed. Keep this helper for any older callers.
+
 function showAllExpenses() {
     if (selectedGroupId !== null) {
         showGroupExpenses(selectedGroupId);
@@ -329,7 +271,7 @@ function deleteExpense(expenseId) {
     Depenses = Depenses.filter(function (expense) {
         return expense.id !== expenseId;
     });
-
+saveToLS(DEPENSES_KEY, Depenses);
 }
 
 
@@ -346,6 +288,8 @@ function updateExpense(expenseId, title, amount, date, category, paidBy, partici
         expense.category = category;
         expense.paidBy = paidBy;
         expense.participants = participants;
+
+        saveToLS(DEPENSES_KEY, Depenses);
     }
 
 }

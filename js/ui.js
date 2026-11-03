@@ -212,6 +212,7 @@ deleteGroupButton.addEventListener('click', function () {
     });
     if (index !== -1) {
         Groupe.splice(index, 1);
+         saveToLS(GROUPS_KEY, Groupe);
         showGroups(Groupe);
     }
     groupFormContenair.classList.add("hidden");

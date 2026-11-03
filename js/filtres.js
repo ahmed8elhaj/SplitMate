@@ -1,9 +1,4 @@
 
-const groupCategorySelect = document.getElementById('group-expense-category');
-const groupPayerSelect = document.getElementById('group-expense-payer');
-const groupSearchInput = document.getElementById('group-expense-search');
-const groupSortSelect = document.getElementById('group-expense-sort');
-const expensesContainer = document.getElementById('group-expenses-container');
 
 
 function displayPayers(groupId) {
