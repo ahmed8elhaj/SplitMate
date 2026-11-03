@@ -5,9 +5,16 @@
 .krishna{
     color:#4F46E5;
 }
+.red{
+    color:red;
+}
 .background-krishna{
 background-color:#4F46E5 ;
 }
+
+ .background-silver{
+     background-color: #697386;
+ }
 
 #Expenses-title-input{
     width:100%;
@@ -73,11 +80,18 @@ background-color:#4F46E5 ;
 .flex-end{
     display: flex;
     justify-content: end;
+    gap: 10px;
 }
 
 .gap{
     display: flex;
     gap: 40px;
+}
+
+.gap5px{
+    display:flex;
+    gap: 5px;
+    align-items: center;
 }
 
 .gap10px{
@@ -307,6 +321,22 @@ main{
      border:2px silver solid;
     border-radius:10px ;
 }
+
+
+#add-member-formuler{
+    display: none;
+    position: fixed;
+    top:40%;
+    left: 50%;
+    bottom: 50%;
+    margin-top: -100px; 
+    margin-left: -250px;
+    width: 40vw;
+    height: 60vh;
+    background-color: #F2F8F7;
+}
+
+
 
 
 
