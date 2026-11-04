@@ -87,11 +87,10 @@ emptyAndClose(cancelButton, groupFormContenair);
 handleGroupOptions(groupsContainer, Groupe);
 
 groupsContainer.addEventListener("click", function (event) {
-  const button = event.target.closest(".open-group-button");
+  
+    
+    const button = event.target.closest(".open-group-button");
 
-  if (!button) {
-    return;
-  }
 
   const groupId = Number(button.dataset.id);
 

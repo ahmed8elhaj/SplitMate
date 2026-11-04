@@ -174,11 +174,7 @@ function createExpenseCard(expense) {
     deleteButton.innerHTML = '<i class="ri-delete-bin-line"></i> Delete expense';
     deleteButton.className = 'rounded-lg bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700';
     deleteButton.addEventListener('click', function () {
-
-
-
-
-        const confirmation = confirm('Are you sure you want to delete this expense?');
+        const confirmation = confirm('Are you sure y    ou want to delete this expense?');
 
         if (confirmation) {
             deleteExpense(expense.id);
