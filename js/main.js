@@ -95,8 +95,9 @@ function removeFromClasslist(classesToRemove, elements) {
 
 
 function showGroupTab(tab) {
+    if (tab !== 'members') addMemberform.classList.add('hidden');
 
-    addToClasslist(['hidden'], [groupExpensesSection, groupBalancesSection, AddExpensesForm])
+    addToClasslist(['hidden'], [groupExpensesSection, groupMembersSection, groupBalancesSection, AddExpensesForm])
 
     removeFromClasslist(['border-b-2', 'border-indigo-600', 'text-indigo-600'], [groupExpensesTab, groupMembersTab, groupBalancesTab])
 
@@ -153,6 +154,7 @@ function showGroupMembers(groupId) {
         container.appendChild(item);
     });
     if (members.length === 0) container.textContent = 'No members in this group yet.';
+    document.getElementById('tab-members-count').textContent = members.length;
 }
 
 
