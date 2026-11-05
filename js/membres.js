@@ -1,6 +1,5 @@
 
-let Membres = [];
-
+let Membres = []
 const groupsPageList = document.getElementById('groups-page-list');
 const addMemberform = document.getElementById('add-member-formuler');
 const groupDetails = document.getElementById('group-details');
@@ -10,6 +9,7 @@ const fullMemberInPut = document.getElementById('full-MemberInP');
 const nickNameMemberInPut = document.getElementById('nickName-MemberInP');
 const btnSaveMemberform = document.getElementById('btnSave-member-form');
 const membersContainer = document.getElementById('members-container')
+const btnSaveModifierMember =document.getElementById('btnSaveModifier-member-form')
 
 
 groupsPageList.addEventListener('click', (event) => {
@@ -20,6 +20,11 @@ groupsPageList.addEventListener('click', (event) => {
 
 btnAddMember.addEventListener('click', () => {
   addMemberform.style.display = 'block';
+  btnSaveMemberform.style.display='block';
+  btnSaveModifierMember.style.display='none';
+
+  fullMemberInPut.value = '';
+  nickNameMemberInPut.value = '';
 })
 btnCancelform.addEventListener('click', () => {
   addMemberform.style.display = 'none';
@@ -58,7 +63,7 @@ function createMember() {
     pseudo: nickNameMemberInPut.value,
     groupId: selectedGroupId
   }
-
+  
   Membres.push(member);
 }
 
@@ -106,6 +111,42 @@ function affichierMembersgroup() {
 }
 
 
+
+function handleModify(memberId) {
+
+   addMemberform.style.display = 'block';
+    btnSaveModifierMember.style.display = "block";
+      btnSaveMemberform.style.display='none';
+
+      for(let member of Membres){
+   if (member.id == memberId) {
+      fullMemberInPut.value = member.nom;
+      nickNameMemberInPut.value=member.pseudo;
+   } 
+      }
+    handleBtnModify(memberId)
+}
+
+function handleBtnModify(memberId){
+  
+   btnSaveModifierMember.addEventListener('click',(event)=>{
+          event.preventDefault();
+      for(let member of Membres){
+   if (member.id == memberId) {
+       member.nom=fullMemberInPut.value;
+      member.pseudo=nickNameMemberInPut.value;
+   } 
+      }
+
+     addMemberform.style.display = 'none';
+  if (fullMemberInPut.value.trim() == "" || nickNameMemberInPut.value.length == 0) { return; };
+  if (fullMemberInPut.value !== null || nickNameMemberInPut.value !== null) {
+    addMemberform.style.display = 'none';
+    // alert("member modifier successfully !."); 
+  }
+  affichierMembersgroup()
+      })
+}
 
 function handleDelete(memberId) {
   const confirme = confirm('Are you sure you want to delete this member?');
