@@ -7,7 +7,7 @@ let Depenses = readFromLS(DEPENSES_KEY);
 function addExpense(groupId, title, amount, date, category, paidBy, participants) {
     const expense = {
         id: Date.now(),
-        groupId: groupId,
+        groupId: Number(groupId),
         title: title,
         amount: amount,
         date: date,

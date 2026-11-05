@@ -1,75 +1,71 @@
+let Membres = readFromLS(MEMBERS_KEY);
+const groupsPageList = document.getElementById("groups-page-list");
+const addMemberform = document.getElementById("add-member-formuler");
+const groupDetails = document.getElementById("group-details");
+const btnAddMember = document.getElementById("add-member-btn");
+const btnCancelform = document.getElementById("btnCancel-member-form");
+const fullMemberInPut = document.getElementById("full-MemberInP");
+const nickNameMemberInPut = document.getElementById("nickName-MemberInP");
+const btnSaveMemberform = document.getElementById("btnSave-member-form");
+const membersContainer = document.getElementById("members-container");
 
-let Membres = [];
-
-
-
-
-
-const groupsPageList = document.getElementById('groups-page-list');
-const addMemberform = document.getElementById('add-member-formuler');
-const groupDetails = document.getElementById('group-details');
-const btnAddMember = document.getElementById('add-member-btn');
-const btnCancelform = document.getElementById('btnCancel-member-form');
-const fullMemberInPut = document.getElementById('full-MemberInP');
-const nickNameMemberInPut = document.getElementById('nickName-MemberInP');
-const btnSaveMemberform = document.getElementById('btnSave-member-form');
-const membersContainer = document.getElementById('members-container')
-
-
-groupsPageList.addEventListener('click', (event) => {
-    const btnopnGroup = event.target.closest('button')
-    selectedGroupId = btnopnGroup.dataset.id;
-     affichierMembersgroup()
+groupsPageList.addEventListener("click", (event) => {
+  const btnopnGroup = event.target.closest("button");
+  selectedGroupId = btnopnGroup.dataset.id;
+  affichierMembersgroup();
 });
 
-addMemberform.addEventListener('submit', (event) => {
-    event.preventDefault();
+addMemberform.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    if (fullMemberInPut.value.trim() == "" || nickNameMemberInPut.value.length == 0) { return; };
-    if (fullMemberInPut.value !== null || nickNameMemberInPut.value == null) {
-        addMemberform.style.display = 'none';
-        alert("member add successfully !.");
-    }
+  if (
+    fullMemberInPut.value.trim() == "" ||
+    nickNameMemberInPut.value.length == 0
+  ) {
+    return;
+  }
+  if (fullMemberInPut.value !== null || nickNameMemberInPut.value == null) {
+    addMemberform.style.display = "none";
+    alert("member add successfully !.");
+  }
 
-    createMember()
-    affichierMembersgroup()
+  createMember();
+  affichierMembersgroup();
 
-    console.log(Membres)
+  console.log(Membres);
 
-    fullMemberInPut.value = '';
-    nickNameMemberInPut.value = '';
-})
+  fullMemberInPut.value = "";
+  nickNameMemberInPut.value = "";
+});
 
-btnAddMember.addEventListener('click', () => {
-    addMemberform.style.display = 'block';
-})
+btnAddMember.addEventListener("click", () => {
+  addMemberform.style.display = "block";
+});
 
-btnCancelform.addEventListener('click', () => {
-    addMemberform.style.display = 'none';
-})
-
+btnCancelform.addEventListener("click", () => {
+  addMemberform.style.display = "none";
+});
 
 function createMember() {
-    const member = {
-        id: Date.now(),
-        nom: fullMemberInPut.value,
-        pseudo: `@${nickNameMemberInPut.value}`,
-        groupId: selectedGroupId
-    }
-    Membres.push(member);
+  const member = {
+    id: Date.now(),
+    nom: fullMemberInPut.value,
+    pseudo: "@" + nickNameMemberInPut.value,
+    groupId: Number(selectedGroupId),
+  };
+  Membres.push(member);
+  saveToLS(MEMBERS_KEY, Membres);
 }
 
-
 function affichierMembersgroup() {
+  membersContainer.innerHTML = Membres.map((member) => {
+    if (member.groupId !== selectedGroupId) {
+      return;
+    }
+    console.log(member.groupId);
+    console.log(selectedGroupId);
 
-    membersContainer.innerHTML = Membres.map((member) => {
-        if (member.groupId !== selectedGroupId) {
-            return;
-        }
-        console.log(member.groupId);
-        console.log(selectedGroupId);
-
-        return `
+    return `
                    <div
                      class="flex flex-wrap items-center gap-4 p-5 border-b border-slate-100"
                    >
@@ -102,26 +98,22 @@ function affichierMembersgroup() {
                      </button>
                    </div> 
     
-    `
-
-    })
-
+    `;
+  });
 }
 
 function getGroupMembers(groupId) {
-    const groupMembers = Membres.filter(function (member) {
-        return member.groupId === groupId;
-    });
+  const groupMembers = Membres.filter(function (member) {
+    return member.groupId === groupId;
+  });
 
-    return groupMembers;
+  return groupMembers;
 }
 
-
-
 function getGroupMembers(groupId) {
-    const groupMembers = Membres.filter(function (member) {
-        return member.groupId === groupId;
-    });
+  const groupMembers = Membres.filter(function (member) {
+    return member.groupId === groupId;
+  });
 
-    return groupMembers;
+  return groupMembers;
 }
